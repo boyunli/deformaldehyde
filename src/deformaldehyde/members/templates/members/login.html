@@ -1,0 +1,108 @@
+﻿{% load static %}
+<!DOCTYPE html>
+<!--[if IE 8]>
+		<html xmlns="http://www.w3.org/1999/xhtml" class="ie8" lang="zh-CN">
+	<![endif]-->
+<!--[if !(IE 8) ]><!-->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<!--<![endif]-->
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>微商代理网 &lsaquo; 登录</title>
+    <link rel='stylesheet' id='dashicons-css' href="{% static 'members/css/dashicons.min.css' %}" type='text/css' media='all' />
+    <link rel='stylesheet' id='buttons-css' href="{% static 'members/css/buttons.min.css' %}" type='text/css' media='all' />
+    <link rel='stylesheet' id='forms-css' href="{% static 'members/css/forms.min.css' %}" type='text/css' media='all' />
+    <link rel='stylesheet' id='l10n-css' href="{% static 'members/css/l10n.min.css' %}" type='text/css' media='all' />
+    <link rel='stylesheet' id='login-css' href="{% static 'members/css/login.min.css' %}" type='text/css' media='all' />
+    <link rel='stylesheet' id='open-social-style-css' href="{% static 'members/css/os.css' %}" type='text/css' media='all' />
+    <style type="text/css">
+        body {
+            font-family: "Microsoft YaHei", Helvetica, Arial, Lucida Grande, Tahoma, sans-serif;
+            background: url("{% static 'members/images/timg.jpg' %}");
+            width: 100%;
+            height: 100%;
+        }
+
+        .login h1 a {
+            background: url("{% static 'dashboard/picture/logo.png' %}") no-repeat 0 0 transparent;
+            width: 220px;
+            height: 50px;
+            padding: 0;
+            margin: 0 auto 1em;
+        }
+
+        .login form,
+        .login .message {
+            background: #fff;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 2px;
+            border: 1px solid #fff;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.8);
+        }
+
+        .login label {
+            color: #000;
+            font-weight: bold;
+        }
+
+        .login .message {
+            color: #000;
+        }
+
+        #backtoblog a,
+        #nav a {
+            color: #fff !important;
+        }
+    </style>
+    <meta name='robots' content='noindex,follow' />
+</head>
+
+<body class="login login-action-login wp-core-ui  locale-zh-cn">
+    <div id="login">
+        <h1><a href="{% url 'dashboard:index' %}" title="欢迎您光临本站！" tabindex="-1">微商代理网</a></h1>
+
+        <form name="loginform" id="loginform" action="{% url 'members:login' %}" method="post">
+            {% csrf_token %}
+            <p>
+                <label for="user_login">用户名或电子邮件地址<br />
+                {{ form.username }}
+                {{ form.username.errors }}
+            </p>
+            <p>
+                <label for="user_pass">密码<br />
+                {{ form.password }}
+                {{ form.password.errors }}
+            </p>
+            <p class="forgetmenot">
+                <label for="rememberme"><input name="rememberme" type="checkbox" id="rememberme" value="forever" /> 记住我的登录信息</label>
+            </p>
+            <p class="submit">
+                <input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large" value="登录" />
+                <input type="hidden" name="redirect_to" value="/" />
+                <input type="hidden" name="testcookie" value="1" />
+            </p>
+        </form>
+
+        <p id="nav">
+            <a href="{% url 'members:register' %}">注册</a> | <a href="">忘记密码？</a>
+        </p>
+
+        <p id="backtoblog"><a href="{% url 'dashboard:index' %}">&larr; Back to 微商代理网</a></p>
+
+    </div>
+
+
+    <script type='text/javascript'>
+        /* <![CDATA[ */
+        var open_social = {
+            "status": "abc",
+            "content": "def"
+        };
+        /* ]]> */
+    </script>
+    <script type='text/javascript' src="{% static 'members/js/os.js' %}"></script>
+    <div class="clear"></div>
+</body>
+
+</html>

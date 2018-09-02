@@ -1,0 +1,479 @@
+﻿{% load static %}
+{% load dashboard_extras %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <title>注册 | 微商代理网</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <link rel="shortcut icon" href="{% static 'dashboard/images/favicon.jpg' %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static 'dashboard/images/favicon.jpg' %}" />
+    <!--[if lt IE 9]>
+    <script src="static/js/html5.js"></script>
+    <script src="static/js/css3-mediaqueries.js"></script>
+    <![endif]-->
+    <link rel='stylesheet' id='layerslider-css' href="{% static 'members/css/layerslider.css' %}" type='text/css' media='all' />
+    <link rel='stylesheet' id='ls-google-fonts-css' href="{% static 'members/css/d75a46e210f24646abde2f6ec040fa24.css' %}" type='text/css' media='all' />
+    <link rel='stylesheet' id='begin-style-css' href="{% static 'dashboard/css/style.css' %}" type='text/css' media='all' />
+    <link rel='stylesheet' id='fonts-css' href="{% static 'members/css/fonts.css' %}" type='text/css' media='all' />
+    <link rel='stylesheet' id='iconfontd-css' href="{% static 'members/css/font_381871_j182x259tz.css' %}" type='text/css' media='all' />
+    <link rel='stylesheet' id='highlight-css' href="{% static 'members/css/highlight.css' %}" type='text/css' media='all' />
+    <link rel='stylesheet' id='font-awesome-four-css'  href="{% static 'dashboard/css/font-awesome.min.css' %}" type='text/css' media='all' />
+    <script type='text/javascript' src="{% static 'members/js/greensock.js' %}"></script>
+    <script type='text/javascript' src="{% static 'members/js/jquery.min.js' %}"></script>
+    <script type='text/javascript'>
+        /* <![CDATA[ */
+        var LS_Meta = {
+            "v": "5.6.9"
+        };
+        /* ]]> */
+    </script>
+    <script type='text/javascript' src="{% static 'members/js/layerslider.kreaturamedia.jquery.js' %}"></script>
+    <script type='text/javascript' src="{% static 'members/js/layerslider.transitions.js' %}"></script>
+    <meta name="generator" content="Powered by LayerSlider 5.6.9 - Multi-Purpose, Responsive, Parallax, Mobile-Friendly Slider Plugin for WordPress." />
+    <!-- LayerSlider updates and docs at: https://kreaturamedia.com/layerslider-responsive-wordpress-slider-plugin/ -->
+    <style>
+        #content,
+        .header-sub,
+        .top-nav,
+        #top-menu,
+        #mobile-nav,
+        #main-search,
+        #search-main,
+        .breadcrumb,
+        .footer-widget,
+        .links-box,
+        .g-col,
+        .links-group #links,
+        .menu-img {
+            width: 1130px;
+        }
+
+        @media screen and (max-width: 1130px) {
+            #content,
+            .breadcrumb,
+            .footer-widget,
+            .links-box,
+            #top-menu,
+            .top-nav,
+            #main-search,
+            #search-main,
+            #mobile-nav,
+            .header-sub,
+            .breadcrumb,
+            .g-col,
+            .links-group #links,
+            .menu-img {
+                width: 98%;
+            }
+        }
+    </style>
+    <style>
+        #site-nav .down-menu>li>a:hover,
+        #site-nav .down-menu>li.sfHover>a {
+            background: transparent;
+            color: #ef5a6e !important;
+        }
+
+        #site-nav .down-menu>.current-menu-item>a,
+        #site-nav .down-menu>.current-menu-item>a:hover {
+            background: transparent;
+            color: #ef5a6e !important;
+        }
+
+        /*阴影效果*/
+        .post:hover {
+            box-shadow: 0 0 20px 3px #D7E6F0;
+            z-index: 1;
+        }
+
+        .timeline-block .post:hover {
+            box-shadow: none;
+        }
+
+        .search-page .post:hover {
+            box-shadow: none;
+        }
+
+        /*修复文章作者信息错位*/
+        .authorbio img {
+            float: left;
+            height: 50px;
+            width: 50px;
+            margin-right: 10px;
+        }
+    </style>
+    <meta name="generator" content="Powered by WPBakery Page Builder - drag and drop page builder for WordPress." />
+    <!--[if lte IE 9]><link rel="stylesheet" type="text/css" href="static/css/vc_lte_ie9.min.css" media="screen"><![endif]-->
+    <style type="text/css" id="custom-background-css">
+        body.custom-background {
+            background-color: #e5f1f9;
+        }
+    </style>
+    <noscript>
+        <style type="text/css">
+            .wpb_animate_when_almost_visible {
+                opacity: 1;
+            }
+        </style></noscript>
+    <style type="text/css">
+        .nav {
+            display: none;
+        }
+
+        @media only screen and (max-width:450px) {
+            .site-info {
+                padding: 15px 0 60px 0;
+            }
+            #advert_widget,
+            .php_text .widget-text,
+            .widget .textwidget {
+                padding: 0;
+            }
+            .nav {
+                position: fixed;
+                z-index: 999;
+                bottom: 0;
+                width: 100%;
+                height: 52px;
+                display: block;
+                right: 0;
+                box-shadow: 0px 0px 10px 3px rgba(223, 233, 247, 1.0);
+                -webkit-box-shadow: 0px 0px 10px 3px rgba(223, 233, 247, 1.0);
+                -moz-box-shadow: 0px 0px 10px 3px rgba(223, 233, 247, 1.0);
+                -o-box-shadow: 0px 0px 10px 3px rgba(223, 233, 247, 1.0);
+                -ms-box-shadow: 0px 0px 10px 3px rgba(223, 233, 247, 1.0);
+            }
+            .nav {
+                padding-left: 0;
+                margin-bottom: 0;
+                list-style: none;
+            }
+            .nav img {
+                width: 50px !important;
+                height: 50px !important;
+            }
+            .nav>ul {
+                position: relative;
+                z-index: 1;
+                height: 52px;
+                background: rgba(255, 255, 255, 1);
+                list-style-image: none;
+                list-style-type: none;
+                margin: 0px;
+                padding: 0px !important;
+            }
+            .nav ul li {
+                position: relative;
+                float: left;
+                width: 20%;
+                text-align: center;
+                margin: 0px;
+                padding: 0px;
+                list-style-image: none;
+                list-style-type: none;
+                top: 0px;
+                left: 0%;
+            }
+            .nav ul li a {
+                display: block;
+                margin-right: auto;
+                margin-left: auto;
+            }
+        }
+    </style>
+
+</head>
+
+<body data-rsssl=1 class="page-template page-template-pages page-template-template-reg page-template-pagestemplate-reg-php page page-id-101 custom-background wpb-js-composer js-comp-ver-5.5.2 vc_responsive">
+    <div id="page" class="hfeed site">
+
+        {% load_banner user %}
+
+        <div id="content" class="site-content">
+            <style type="text/css">
+                body {
+                  background: url({% static 'members/images/beijing001.jpg' %})
+                }
+            </style>
+            <style type="text/css">
+                #primary {
+                    width: 100%;
+                    height: 700px;
+                    box-shadow: none;
+                }
+
+                #primary .page {
+                    background: transparent !important;
+                    padding: 0 !important;
+                    border: none !important;
+                    box-shadow: none !important;
+                }
+
+                #primary .single-content {
+                    float: left;
+                    width: 50%;
+                    font-size: 16px;
+                    color: #fff;
+                    margin: 30px 0 0 0;
+                    padding: 10px 10px 10px 30px;
+                }
+
+                .reg-main {
+                    margin: 30px 0 0 0;
+                }
+
+                .user_reg {
+                    float: right;
+                    width: 70%;
+                }
+
+                .reg-page {
+                    position: relative;
+                    float: left;
+                    width: 50%;
+                    height: 500px;
+                    padding: 10px 30px 10px 10px;
+                    border-right: 1px dashed #ccc;
+                }
+
+                .reg-page p {
+                    text-indent: 0em;
+                }
+
+                p.user_error {
+                    position: fixed;
+                    top: 100px;
+                    left: 0;
+                    background: #fff;
+                    margin: 16px 0;
+                    padding: 10px 10px 0 10px;
+                    border-radius: 2px;
+                    border: 1px solid #f3f3f3;
+                }
+
+                .user_error .be-info {
+                    color: #ff0129;
+                    margin: 0 5px 0 0;
+                }
+
+                .shut-error {
+                    float: right;
+                    color: #e73c31;
+                    padding: 5px;
+                    display: block;
+                    cursor: pointer;
+                }
+
+                p.user_is {
+                    width: 300px;
+                    color: #fff;
+                    line-height: 40px;
+                    text-align: center;
+                    margin: 50px auto;
+                    padding: 12px;
+                }
+
+                .user_is a {
+                    background: #e73c31;
+                    color: #fff;
+                    padding: 5px 10px;
+                    border: 1px solid #e73c31;
+                    border-radius: 2px;
+                    -webkit-appearance: none;
+                }
+
+                .user_is a:hover {
+                    background: #fb5548;
+                    border: 1px solid #fb5548;
+                    transition: all 0.2s ease-in 0s;
+                }
+
+                .user_is img {
+                    margin: 0 auto;
+                }
+
+                .user_reg label {
+                    color: #fff;
+                    cursor: pointer;
+                }
+
+                .user_reg .input {
+                    background: #fff;
+                    width: 70%;
+                    margin: 5px 0;
+                    padding: 5px 10px;
+                    border: 1px solid #ddd;
+                    border-radius: 2px;
+                    -webkit-appearance: none;
+                }
+
+                .reg-page #submit {
+                    background: #e73c31;
+                    font-size: 16px;
+                    color: #fff;
+                    width: 100px;
+                    margin: 10px 10px 10px 0;
+                    padding: 6px;
+                    cursor: pointer;
+                    border: 1px solid #e73c31;
+                    border-radius: 2px;
+                    -webkit-appearance: none;
+                }
+
+                .reg-page #submit:hover {
+                    background: #fb5548;
+                    border: 1px solid #fb5548;
+                    transition: all 0.2s ease-in 0s;
+                }
+
+                .to-code a {
+                    background: #e73c31;
+                    color: #fff;
+                    padding: 6px;
+                    border: 1px solid #e73c31;
+                    border-radius: 2px;
+                    -webkit-appearance: none;
+                }
+
+                .to-code a:hover {
+                    background: #fb5548;
+                    border: 1px solid #fb5548;
+                    transition: all 0.2s ease-in 0s;
+                }
+
+                .droperror {
+                    color: #fff;
+                }
+
+                #scroll .scroll-c,
+                .tg-site {
+                    display: none;
+                }
+
+                .reg-error {
+                    color: #fff;
+                    font-size: 16px;
+                    font-size: 1.6rem;
+                    text-align: center;
+                    margin: 50px 0;
+                }
+
+                @media screen and (max-width: 900px) {
+                    #primary .single-content {
+                        display: none;
+                    }
+                    .reg-page {
+                        width: 100%;
+                        padding: 10px;
+                        border-right: none;
+                    }
+                    .user_reg {
+                        float: inherit;
+                    }
+                    .user_reg {
+                        width: 100%;
+                    }
+                    .to-code {
+                        width: 90px;
+                        display: block;
+                    }
+                }
+
+                .si_captcha_small {
+                    margin: 0 0 10px 0;
+                }
+            </style>
+
+            <div id="primary" class="content-reg">
+                <main id="main" class="site-main" role="main">
+                    <article id="post-101" class="post-101 page type-page status-publish hentry qvw">
+                        <div class="reg-main">
+                            <div class="reg-page">
+                              {% if user.is_authenticated %}
+                                <p class="user_is">
+                                    欢迎 <strong>{{ user.username }}</strong><br>
+                                    <a href="{% url "members:logout" %}" title="">退出登录</a>
+                                    &nbsp;&nbsp;<a href="{% url 'members:member' %}">用户中心</a> 
+                                </p>
+                              {% else %}
+                                  <form name="registerform" method="post" action="{% url 'members:register' %}" class="user_reg">
+                                  {% csrf_token %}
+                                  {{ form.non_field_errors }}
+                                        <p>
+                                            <label for="user_login">用户名 *<br />
+                                                {{ form.username }}
+                                            </label>
+                                            {{ form.username.errors }}
+                                        </p>
+
+                                        <p>
+                                            <label for="user_email">电子邮件地址 *<br />
+                                                {{ form.email }}
+                                            </label>
+                                            {{ form.email.errors }}
+                                        </p>
+
+                                        <p>
+                                            <label for="user_pwd1">密码(至少8位) *<br />
+                                                {{ form.password1 }}
+                                            </label>
+                                            {{ form.password1.errors }}
+                                        </p>
+
+                                        <p>
+                                            <label for="user_pwd2">重复密码 *<br />
+                                                {{ form.password2 }}
+                                            </label>
+                                            {{ form.password2.errors }}
+                                        </p>
+
+
+                                        <p class="submit">
+                                            <input type="hidden" name="user_reg" value="ok" />
+                                            <input id="submit" name="submit" type="submit" value="提交注册" />
+                                        </p>
+                                   </form>
+                                {% endif %}
+
+                            </div>
+
+                            <div class="entry-content">
+                                <div class="single-content">
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="clear"></div>
+                    </article>
+                </main>
+            </div>
+
+        </div><!-- .site-content -->
+        <div class="clear"></div>
+        {% load_footer %}
+        {% load_login_pop %}
+        {% load_scroll %}
+    </div><!-- .site -->
+    <script type='text/javascript' src="{% static 'members/js/slides.js' %}"></script>
+    <script type='text/javascript' src="{% static 'members/js/sticky.js' %}"></script>
+    <script type='text/javascript' src="{% static 'members/js/jquery-ias.js' %}"></script>
+    <script type='text/javascript' src="{% static 'members/js/jquery.lazyload.js' %}"></script>
+    <script type='text/javascript' src="{% static 'members/js/tipso.js' %}"></script>
+    <script type='text/javascript' src="{% static 'members/js/script.js' %}"></script>
+    <script type='text/javascript' src="{% static 'members/js/flexisel.js' %}"></script>
+    <script type='text/javascript' src="{% static 'members/js/fancybox.js' %}"></script>
+    <script type='text/javascript' src="{% static 'members/js/comments-ajax.js' %}"></script>
+    <script type='text/javascript' src="{% static 'members/js/superfish.js' %}"></script>
+    <script type='text/javascript' src="{% static 'members/js/gb2big5.js' %}"></script>
+    <script type='text/javascript' src="{% static 'members/js/carousel.min.js' %}"></script>
+    <script type='text/javascript' src="{% static 'members/js/bd-share.js' %}"></script>
+    <script type='text/javascript' src="{% static 'members/js/wpzm.js' %}"></script>
+</body>
+
+</html>

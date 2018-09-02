@@ -1,0 +1,390 @@
+﻿{% load dashboard_extras %}
+{% load fullurl %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <title>给我投稿 | 微商代理网</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <link rel="shortcut icon" href="{% fullstatic 'dashboard/images/favicon.jpg' %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% fullstatic 'dashboard/images/favicon.jpg' %}" />
+    <!--[if lt IE 9]>
+    <script src="fullstatic/js/html5.js"></script>
+    <script src="fullstatic/js/css3-mediaqueries.js"></script>
+    <![endif]-->
+    <link rel='stylesheet' id='layerslider-css' href="{% fullstatic 'members/css/layerslider.css' %}" type='text/css' media='all' />
+    <link rel='stylesheet' id='ls-google-fonts-css' href="{% fullstatic 'members/css/d75a46e210f24646abde2f6ec040fa24.css' %}" type='text/css' media='all' />
+    <link rel='stylesheet' id='begin-style-css' href="{% fullstatic 'dashboard/css/style.css' %}" type='text/css' media='all' />
+    <link rel='stylesheet' id='fonts-css' href="{% fullstatic 'members/css/fonts.css' %}" type='text/css' media='all' />
+    <link rel='stylesheet' id='iconfontd-css' href="{% fullstatic 'dashboard/css/font_564965_qh7d0ejbukcblnmi.css' %}" type='text/css' media='all' />
+    <link rel='stylesheet' id='highlight-css' href="{% fullstatic 'members/css/highlight.css' %}" type='text/css' media='all' />
+    <link rel='stylesheet' id='font-awesome-four-css'  href="{% fullstatic 'dashboard/css/font-awesome.min.css' %}" type='text/css' media='all' />
+    <script type='text/javascript' src="{% fullstatic 'members/js/greensock.js' %}"></script>
+    <script type='text/javascript' src="{% fullstatic 'dashboard/js/jquery.min.js' %}"></script>
+    <script type='text/javascript'>
+        /* <![CDATA[ */
+        var LS_Meta = {
+            "v": "5.6.9"
+        };
+        /* ]]> */
+    </script>
+    <script type='text/javascript' src="{% fullstatic 'members/js/layerslider.kreaturamedia.jquery.js' %}"></script>
+    <script type='text/javascript' src="{% fullstatic 'members/js/layerslider.transitions.js' %}"></script>
+    <meta name="generator" content="Powered by LayerSlider 5.6.9 - Multi-Purpose, Responsive, Parallax, Mobile-Friendly Slider Plugin for WordPress." />
+    <!-- LayerSlider updates and docs at: https://kreaturamedia.com/layerslider-responsive-wordpress-slider-plugin/ -->
+    <style>
+        #content,
+        .header-sub,
+        .top-nav,
+        #top-menu,
+        #mobile-nav,
+        #main-search,
+        #search-main,
+        .breadcrumb,
+        .footer-widget,
+        .links-box,
+        .g-col,
+        .links-group #links,
+        .menu-img {
+            width: 1130px;
+        }
+
+        @media screen and (max-width: 1130px) {
+            #content,
+            .breadcrumb,
+            .footer-widget,
+            .links-box,
+            #top-menu,
+            .top-nav,
+            #main-search,
+            #search-main,
+            #mobile-nav,
+            .header-sub,
+            .breadcrumb,
+            .g-col,
+            .links-group #links,
+            .menu-img {
+                width: 98%;
+            }
+        }
+    </style>
+    <style>
+        #site-nav .down-menu>li>a:hover,
+        #site-nav .down-menu>li.sfHover>a {
+            background: transparent;
+            color: #ef5a6e !important;
+        }
+
+        #site-nav .down-menu>.current-menu-item>a,
+        #site-nav .down-menu>.current-menu-item>a:hover {
+            background: transparent;
+            color: #ef5a6e !important;
+        }
+
+        /*阴影效果*/
+        .post:hover {
+            box-shadow: 0 0 20px 3px #D7E6F0;
+            z-index: 1;
+        }
+
+        .timeline-block .post:hover {
+            box-shadow: none;
+        }
+
+        .search-page .post:hover {
+            box-shadow: none;
+        }
+
+        /*修复文章作者信息错位*/
+        .authorbio img {
+            float: left;
+            height: 50px;
+            width: 50px;
+            margin-right: 10px;
+        }
+    </style>
+    <meta name="generator" content="Powered by WPBakery Page Builder - drag and drop page builder for WordPress." />
+    <!--[if lte IE 9]><link rel="stylesheet" type="text/css" href="fullstatic/css/vc_lte_ie9.min.css" media="screen"><![endif]-->
+    <style type="text/css" id="custom-background-css">
+        body.custom-background {
+            background-color: #e5f1f9;
+        }
+    </style>
+    <noscript>
+        <style type="text/css">
+            .wpb_animate_when_almost_visible {
+                opacity: 1;
+            }
+        </style></noscript>
+    <style type="text/css">
+        .nav {
+            display: none;
+        }
+
+        @media only screen and (max-width:450px) {
+            .site-info {
+                padding: 15px 0 60px 0;
+            }
+            #advert_widget,
+            .php_text .widget-text,
+            .widget .textwidget {
+                padding: 0;
+            }
+            .nav {
+                position: fixed;
+                z-index: 999;
+                bottom: 0;
+                width: 100%;
+                height: 52px;
+                display: block;
+                right: 0;
+                box-shadow: 0px 0px 10px 3px rgba(223, 233, 247, 1.0);
+                -webkit-box-shadow: 0px 0px 10px 3px rgba(223, 233, 247, 1.0);
+                -moz-box-shadow: 0px 0px 10px 3px rgba(223, 233, 247, 1.0);
+                -o-box-shadow: 0px 0px 10px 3px rgba(223, 233, 247, 1.0);
+                -ms-box-shadow: 0px 0px 10px 3px rgba(223, 233, 247, 1.0);
+            }
+            .nav {
+                padding-left: 0;
+                margin-bottom: 0;
+                list-style: none;
+            }
+            .nav img {
+                width: 50px !important;
+                height: 50px !important;
+            }
+            .nav>ul {
+                position: relative;
+                z-index: 1;
+                height: 52px;
+                background: rgba(255, 255, 255, 1);
+                list-style-image: none;
+                list-style-type: none;
+                margin: 0px;
+                padding: 0px !important;
+            }
+            .nav ul li {
+                position: relative;
+                float: left;
+                width: 20%;
+                text-align: center;
+                margin: 0px;
+                padding: 0px;
+                list-style-image: none;
+                list-style-type: none;
+                top: 0px;
+                left: 0%;
+            }
+            .nav ul li a {
+                display: block;
+                margin-right: auto;
+                margin-left: auto;
+            }
+        }
+    </style>
+
+</head>
+
+<body data-rsssl=1 class="page-template page-template-pages page-template-template-tougao page-template-pagestemplate-tougao-php page page-id-2448 logged-in custom-background wpb-js-composer js-comp-ver-5.5.2 vc_responsive">
+    <div id="page" class="hfeed site">
+
+        {% load_banner user %}
+
+        <div id="content" class="site-content">
+            <style type="text/css">
+                #primary {
+                    width: 100%;
+                }
+
+                #basicinfo p {
+                    text-indent: 0;
+                }
+
+                .postform {
+                    background: #fff;
+                    width: 40%;
+                    margin: 5px 0;
+                    padding: 5px;
+                    border: 1px solid #ebebeb;
+                    border-radius: 2px;
+                    -webkit-appearance: none;
+                }
+
+                .post-area {
+                    margin-top: 10px;
+                }
+
+                #basicinfo label {
+                    float: left;
+                    width: 80px;
+                    line-height: 40px;
+                }
+
+                #basicinfo input {
+                    background: #fff;
+                    width: 40%;
+                    margin: 5px 0;
+                    padding: 5px;
+                    border: 1px solid #ebebeb;
+                    border-radius: 2px;
+                    -webkit-appearance: none;
+                }
+
+                #basicinfo input:focus {
+                    outline: 0;
+                    border: 1px solid #568abc;
+                }
+
+                textarea,
+                #zm-content {
+                    background: #fff;
+                    width: 100%;
+                    margin: 5px 0;
+                    padding: 5px;
+                    border: 1px solid #ebebeb;
+                    border-radius: 2px;
+                    -webkit-appearance: none;
+                }
+
+                #submit {
+                    background: #0088cc;
+                    float: left;
+                    width: 40%;
+                    height: 40px;
+                    color: #fff;
+                    text-align: center;
+                    margin: 10px 0 0 0;
+                    border: 0px;
+                    cursor: pointer;
+                    border-radius: 2px;
+                    -webkit-appearance: none;
+                    box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+                }
+
+                #submit:hover {
+                    background: #a3a3a3;
+                }
+
+                .mce-path-item {
+                    display: none;
+                }
+
+                .mce-stack-layout {
+                    border: 1px solid #ebebeb;
+                }
+
+                #sc_select {
+                    display: none;
+                }
+            </style>
+            <div id="primary" class="content-area">
+                <main id="main" class="site-main" role="main">
+                    <article id="post-2448" class="post-2448 page type-page status-publish hentry qvw">
+                        <header class="entry-header">
+                            <h1 class="entry-title">微商代理货源提交</h1>
+                        </header><!-- .entry-header -->
+                        <div class="entry-content">
+                            <div class="single-content">
+                                <blockquote>
+                                    <p>
+                                        <span style="color: #ff0000;">
+                                            <a title="发布货源教程" href="" target="_blank">
+                                                <strong>①货源图片不得多于3张。</strong> 
+                                            </a>
+                                        </span>
+                                        <span style="color: #FFA500"><strong>②货源内容必须包含不少于100字原创内容，否则不通过。</strong></span>
+                                        <span>
+                                            <a title="发布货源教程" href="" target="_blank">
+                                                <strong>③同一个货源标题重复提交，均不通过。</strong> 
+                                            </a>
+                                        </span>
+                                    </p>
+                                    <p>
+                                        <strong style="color: #FF6A6A;">货源发布SEO知识：尽量保持标题和文章内容的原创与不重复，能让百度更快收录你的货源信息，才会有更多客户看到你发布的货源资讯！</strong> 
+                                    </p>
+                                </blockquote>
+                                {% if request.user.is_authenticated %}
+                                <form method="post" action="" enctype="multipart/form-data">
+                                  {% csrf_token %}
+                                    <div id="basicinfo">
+                                        {% if article_form.title.errors %}
+                                            <p>
+                                                <label style="color:red;">错误：</label>
+                                                {{ article_form.title.errors }}
+                                            </p>
+                                        {% endif %}
+                                        <p>
+                                            <label>文章标题：</label>
+                                            {{ article_form.title }}
+                                        </p>
+                                        <p>
+                                            <label>微信：</label>
+                                            {{ article_form.wechat }}
+                                        </p>
+                                        <p>
+                                            <label>选择分类：</label>
+                                            {{ article_form.category}}
+                                        </p>
+                                        <p>
+                                            <label>标签：</label>
+                                            {{ article_form.tags }}
+                                            <div class="help" style="margin:-19px 0px 0px 80px; font-size:11px; color:#FF6A6A;">按住 ”Ctrl“ 进行多选</div>
+                                        </p>
+                                        <p>
+                                            <label>首图：</label>
+                                            {{ article_form.image }}
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <label>文章内容（不少于100个字）：</label>
+                                        <div class="post-area">
+                                            {{ article_form.media }}
+                                            {{ article_form.content }}
+                                        </div>
+                                        <p>
+                                            <input type="hidden" value="send" name="tougao_form" />
+                                            <input id="submit" name="submit" type="submit" value="提交文章" />
+                                        </p>
+                                </form>
+                                {% else %}
+                                    <p>提示：您需要先<a href="#login" class="flatbtn" id="login-main">登录</a>，才能发布货源！</p>
+                                {% endif %}
+
+                                <div class="clear"></div>
+
+
+                                </div>
+                            </div><!-- .entry-content -->
+                    </article><!-- #page -->
+                </main><!-- .site-main -->
+                </div><!-- .content-area -->
+
+            </div><!-- .site-content -->
+            <div class="clear"></div>
+            {% load_footer %}
+            {% load_login_pop %}
+            {% load_scroll %}
+        </div><!-- .site -->
+        <link rel='stylesheet' id='buttons-css' href="{% fullstatic 'members/css/buttons.min.css' %}" type='text/css' media='all' />
+        <script type='text/javascript' src="{% fullstatic 'members/js/slides.js' %}"></script>
+        <script type='text/javascript' src="{% fullstatic 'members/js/sticky.js' %}"></script>
+        <script type='text/javascript' src="{% fullstatic 'members/js/jquery-ias.js' %}"></script>
+        <script type='text/javascript' src="{% fullstatic 'members/js/jquery.lazyload.js' %}"></script>
+        <script type='text/javascript' src="{% fullstatic 'members/js/tipso.js' %}"></script>
+        <script type='text/javascript' src="{% fullstatic 'members/js/script.js' %}"></script>
+        <script type='text/javascript' src="{% fullstatic 'members/js/flexisel.js' %}"></script>
+        <script type='text/javascript' src="{% fullstatic 'members/js/fancybox.js' %}"></script>
+        <script type='text/javascript' src="{% fullstatic 'members/js/comments-ajax.js' %}"></script>
+        <script type='text/javascript' src="{% fullstatic 'members/js/superfish.js' %}"></script>
+        <script type='text/javascript' src="{% fullstatic 'members/js/gb2big5.js' %}"></script>
+        <script type='text/javascript' src="{% fullstatic 'members/js/carousel.min.js' %}"></script>
+        <script type='text/javascript' src="{% fullstatic 'members/js/bd-share.js' %}"></script>
+        <script type='text/javascript' src="{% fullstatic 'members/js/wpzm.js' %}"></script>
+</body>
+
+</html>

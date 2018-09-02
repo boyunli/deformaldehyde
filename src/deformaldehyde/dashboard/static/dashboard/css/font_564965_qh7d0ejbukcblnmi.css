@@ -1,0 +1,33 @@
+﻿
+@font-face {font-family: "zm";
+  src: url('../fonts/font_564965_qh7d0ejbukcblnmi.eot'); /* IE9*/
+  src: url('../fonts/font_564965_qh7d0ejbukcblnmi.eot') format('embedded-opentype'), /* IE6-IE8 */
+  url('../fonts/3d2700fdc8864989973091cac3f5327f.woff') format('woff'),
+  url('../fonts/font_564965_qh7d0ejbukcblnmi.ttf') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('../fonts/font_564965_qh7d0ejbukcblnmi.svg') format('svg'); /* iOS 4.1- */
+}
+
+.zm {
+  font-family:"zm" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.zm-shipin:before { content: "\e600"; }
+
+.zm-lunhuiyan:before { content: "\e620"; }
+
+.zm-jiaoliu:before { content: "\e60d"; }
+
+.zm-createtask:before { content: "\e6ef"; }
+
+.zm-shipin1:before { content: "\e677"; }
+
+.zm-shipin2:before { content: "\e603"; }
+
+.zm-shuji:before { content: "\e612"; }
+
+.zm--:before { content: "\e62a"; }
+

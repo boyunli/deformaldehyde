@@ -1,0 +1,140 @@
+{% load dashboard_extras %}
+{% load fullurl %}
+<header id="masthead" class="site-header site-header-s">
+    <div id="header-main" class="header-main">
+        <nav id="top-header">
+            <div class="top-nav">
+                <div id="user-profile">
+                  {% if user.is_authenticated %}
+                    <div class="user-box">
+                        <div class="user-my">
+                            <img alt="" src="{% buildfullurl user.portrait.url %}" class="avatar avatar-10 photo wpfla " width="10" height="10">
+                            <a href="javascript:void(0)">{{ user.nickname }}，您好！</a>
+                        </div>
+                        <div class="user-info" style="display: none;">
+                            <div class="arrow-up"></div>
+                            <div class="user-info-min">
+                                <h3>{{ user.nickname }}</h3>
+                                <div class="usericon"> <img alt="" src="{% buildfullurl user.portrait.url %}" class="avatar avatar-80 photo wpfla " width="80" height="80"> </div>
+                                <div class="userinfo">
+                                    <p>
+                                    <a href="{% fullurl 'members:member' %}" target="_blank">用户中心</a> <a href="{% fullurl "members:logout" %}">登出</a>
+                                    </p>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% else %}
+                    <div id="user-profile">
+                        <div class="user-login"><a href="{% fullurl 'members:register' %}" target="_blank"><i class="be be-personoutline"></i>注册</a></div>
+
+                        <div class="nav-set">
+                            <div class="nav-login">
+                                <a href="#login" class="flatbtn" id="login-main"><i class="be be-timerauto"></i>登录</a>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    {% endif %}
+
+                    <div class="nav-set">
+                        <div class="nav-login">
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="menu-%e9%a1%b6%e9%83%a8%e8%8f%9c%e5%8d%95%e6%9c%89%e5%9b%be%e6%a0%87%e7%89%88-container">
+                    <ul id="menu-%e9%a1%b6%e9%83%a8%e8%8f%9c%e5%8d%95%e6%9c%89%e5%9b%be%e6%a0%87%e7%89%88" class="top-menu">
+                        <li id="menu-item-19" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-19">
+                            <a href="{% fullurl 'members:article_post' %}"><i class="be be-edit"></i><span class="font-text">发布信息</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav><!-- #top-header -->
+
+        <div id="menu-box">
+            <div id="top-menu">
+                <span class="nav-search"></span>
+                <span class="mobile-login">
+                        <a href="#login" class="flatbtn" id="login-main"><i class="be be-timerauto"></i></a>
+                </span>
+                <div class="logo-site">
+                    <h2 class="site-title">
+                      <a href="{% fullurl 'dashboard:index' %}">
+                          <img src="{% fullstatic 'dashboard/picture/logo.png' %}" title="微商代理网" alt="微商代理网" rel="home" />
+                          <span class="site-name">微商代理网</span>
+                      </a>
+                    </h2>
+                </div><!-- .logo-site -->
+
+                <div id="site-nav-wrap">
+                    <div id="sidr-close"><a href="#sidr-close" class="toggle-sidr-close">×</a></div>
+                    <div id="sidr-menu">
+                        <div class="toggle-sidr-menu">MENU</a></div>
+                    </div>
+                    <nav id="site-nav" class="main-nav">
+                        <a href="#sidr-main" id="navigation-toggle" class="bars"><i class="be be-menu"></i></a>
+                        <div class="menu-category-container">
+                            <ul id="menu-category" class="down-menu nav-menu">
+                              <li id="menu-item-587"  class="imenu-item menu-item-type-custom menu-item-object-custom current_page_item menu-item-home menu-item-587">
+                                  <a href="{% fullurl 'dashboard:index' %}"><i class="fa fa-television"></i><span class="fontawesome-text"> 首页{{ request.path }}</span></a>
+                              </li>
+                                {% for category in categorys %}
+                                    <li id="menu-item-{{ category.id }}" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-{{ category.id }}">
+                                        <a href="{% buildfullurl category.get_absolute_url %}">
+                                            {% if forloop.counter|divisibleby:"2" %}
+                                                <i class="fa-th-large fa"></i>
+                                            {% else %}
+                                                <i class="fa-heart fa"></i>
+                                            {% endif %}
+                                            <span class="fontawesome-text">{{ category.name }}</span>
+                                        </a>
+                                        {% if category.children.all %}
+                                        <ul class="sub-menu" style="display: none;">
+                                            {% for children in category.children.all %}
+                                            <li id="menu-item-{{ children.id }}" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-{{ children.id }}">
+                                                <a href="{% buildfullurl children.get_absolute_url %}"><span class="font-text">{{ children.name }}</span></a>
+                                            </li>
+                                            {% endfor %}
+                                        </ul>
+                                        {% endif %}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </nav><!-- #site-nav -->
+                </div><!-- #site-nav-wrap -->
+                <div class="clear"></div>
+            </div><!-- #top-menu -->
+        </div><!-- #menu-box -->
+    </div><!-- #menu-box -->
+</header><!-- #masthead -->
+<div id="search-main">
+    <div class="searchbar">
+        <form method="get" id="searchform" action="{% fullurl 'haystack_search' %}">
+            <span class="search-input">
+                <input type="text" value="" name="q" id="s" placeholder="输入搜索内容" required />
+                <button type="submit" id="searchsubmit"><i class="be be-search"></i></button>
+            </span>
+        </form>
+    </div>
+    <div class="clear"></div>
+</div>
+
+{% if user.is_authenticated %}
+    <div id="login">
+         <div class="sidebox">
+               <h3>{{ user.nickname }}，您好！</h3>
+               <div class="usericon"> <img alt="" src="{% buildfullurl user.portrait.url %}" class="avatar avatar-80 photo wpfla " width="80" height="80"> </div>
+               <div class="userinfo">
+                   <p>
+                       <a href="{% fullurl 'members:member' %}" target="_blank">用户中心</a> <a href="{% fullurl "members:logout" %}">登出</a>
+                   </p>
+                   <div class="clear"></div>
+               </div>
+           </div>
+    </div>
+{% endif %}

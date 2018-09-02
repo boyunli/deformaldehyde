@@ -1,0 +1,614 @@
+﻿{% load dashboard_extras %}
+{% load fullurl %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <title>{{ article.title }}-微商代理网</title>
+    <meta name="description" content="{{ article.first_para }}" />
+    <meta name="keywords" content="{% for tag in article.tags.all %}{{ tag.name}}{% if not forloop.last %},{% endif %}{% endfor %}" />
+    <meta property="og:description" content="{{ article.title }}">
+    <meta property="og:type" content="acticle">
+    <meta property="og:locale" content="zh-CN" />
+    <meta property="og:site_name" content="微商代理网">
+    <meta property="og:title" content="{{ article.title }}">
+    <meta property="og:url" content="{% buildfullurl article.get_absolute_url %}" />
+    <meta property="og:image" content="{% buildfullurl article.image.url %}">
+    <link rel="shortcut icon" href="{% fullstatic 'dashboard/images/favicon.jpg' %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% fullstatic 'dashboard/images/favicon.jpg' %}" />
+    <!--[if lt IE 9]>
+    <script src="fullstatic/js/html5.js"></script>
+    <script src="fullstatic/js/css3-mediaqueries.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript">
+        var msg = document.title;
+        msg = "…" + msg;
+        pos = 0;
+
+        function scrollMSG() {
+            document.title = msg.substring(pos, msg.length) + msg.substring(0, pos);
+            pos++;
+            if (pos > msg.length) pos = 0
+            window.setTimeout("scrollMSG()", 200);
+        }
+        scrollMSG();
+    </script>
+
+    <link rel='stylesheet' id='bbp-default-css'  href="{% fullstatic 'dashboard/css/bbpress.css' %}" type='text/css' media='screen' />
+    <link rel='stylesheet' id='font-awesome-four-css'  href="{% fullstatic 'dashboard/css/font-awesome.min.css' %}" type='text/css' media='all' />
+    <link rel='stylesheet' id='begin-style-css'  href="{% fullstatic 'dashboard/css/style.css' %}" type='text/css' media='all' />
+    <link rel='stylesheet' id='fonts-css'  href="{% fullstatic 'dashboard/css/fonts.css' %}" type='text/css' media='all' />
+    <link rel='stylesheet' id='iconfontd-css' href="{% fullstatic 'dashboard/css/font_564965_qh7d0ejbukcblnmi.css' %}" type='text/css' media='all' />
+    <link rel='stylesheet' id='highlight-css'  href="{% fullstatic 'dashboard/css/highlight.css' %}" type='text/css' media='all' />
+    <link rel='stylesheet' id='bbpress-css'  href="{% fullstatic 'dashboard/css/bbp.css' %}" type='text/css' media='all' />
+    <script type='text/javascript' src="{% fullstatic 'dashboard/js/jquery.min.js' %}"></script>
+    <link rel="canonical" href="{% buildfullurl article.get_absolute_url %}" />
+    <style>
+        #content,
+        .header-sub,
+        .top-nav,
+        #top-menu,
+        #mobile-nav,
+        #main-search,
+        #search-main,
+        .breadcrumb,
+        .footer-widget,
+        .links-box,
+        .g-col,
+        .links-group #links,
+        .menu-img {
+            width: 1250px;
+        }
+
+        @media screen and (max-width: 1250px) {
+            #content,
+            .breadcrumb,
+            .footer-widget,
+            .links-box,
+            #top-menu,
+            .top-nav,
+            #main-search,
+            #search-main,
+            #mobile-nav,
+            .header-sub,
+            .breadcrumb,
+            .g-col,
+            .links-group #links,
+            .menu-img {
+                width: 98%;
+            }
+        }
+    </style>
+    <style>
+        .site-title a {
+            color: #dd8800;
+        }
+
+        .site-description {
+            color: #dd8500;
+        }
+
+        #site-nav .down-menu>li>a:hover,
+        #site-nav .down-menu>li.sfHover>a {
+            background: #dd8500;
+            border-bottom: 1px solid #dd8500
+        }
+
+        a:hover,
+        .single-content p a,
+        .single-content p a:visited,
+        .top-menu a:hover,
+        #site-nav .down-menu>.current-menu-item>a,
+        #user-profile a:hover,
+        .top-icon .be,
+        .entry-meta a,
+        .entry-meta-no a,
+        .filter-tag:hover {
+            color: #dd8500;
+        }
+
+        .grid-cat-title:hover .title-i span,
+        .cat-title:hover .title-i span,
+        .cat-square-title:hover .title-i span,
+        .widget-title:hover .title-i span,
+        .cat-grid-title:hover .title-i span,
+        .child-title:hover .title-i span,
+        #respond input[type='text']:focus,
+        #respond textarea:focus {
+            border: 1px solid #dd8500
+        }
+
+        .single-meta li a:hover,
+        #fontsize:hover {
+            background: #dd8500;
+            border: 1px solid #dd8500
+        }
+
+        .ball-pulse>div {
+            border: 1px solid #dd8500
+        }
+
+        .searchbar button,
+        #login input[type='submit'],
+        .log-zd,
+        .read-pl a:hover,
+        .group-phone a,
+        .deanm-main .de-button a {
+            background: #dd8500;
+        }
+
+        .cat-con-section {
+            border-bottom: 3px solid #dd8500;
+        }
+
+        .nav-search:hover:after {
+            color: #dd8500;
+        }
+
+        .down a,
+        .meta-nav:hover,
+        #gallery .callbacks_here a,
+        .link-f a:hover,
+        .ias-trigger-next a:hover,
+        .orderby li a:hover,
+        #respond #submit:hover,
+        .comment-tool a:hover,
+        .login-respond,
+        .filter-on {
+            background: #dd8500;
+            border: 1px solid #dd8500
+        }
+
+        .entry-more a {
+            background: #dd8500;
+        }
+
+        .entry-more a:hover {
+            background: #666;
+        }
+
+        @media screen and (min-width: 550px) {
+            .pagination span.current,
+            .pagination a:hover,
+            .favorite-e a:hover,
+            .gr-cat-title a,
+            .group-tab-hd .group-current {
+                background: #dd8500;
+                border: 1px solid #dd8500
+            }
+        }
+
+        @media screen and (max-width: 550px) {
+            .pagination .prev,
+            .pagination .next {
+                background: #dd8500;
+                border: 1px solid #dd8500
+            }
+        }
+
+        @media screen and (min-width: 900px) {
+            #scroll li a:hover,
+            .page-links span,
+            .page-links a:hover span {
+                background: #dd8500;
+                border: 1px solid #dd8500
+            }
+        }
+
+        .single-content .directory {
+            border-left: 5px solid #dd8500;
+        }
+
+        .entry-header h1 {
+            border-left: 5px solid #dd8500;
+            border-right: 5px solid #dd8500;
+        }
+
+        .slider-caption,
+        .header-sub h1 {
+            background: #dd8500;
+        }
+
+        .callbacks_tabs .callbacks_here a {
+            background: #dd8500;
+            border: 1px solid #dd8500
+        }
+
+        .callbacks_nav {
+            color: #dd8500;
+        }
+
+        .thumbnail .cat,
+        .format-img-cat,
+        .title-l,
+        .des-t,
+        .des-p {
+            background: #dd8500;
+        }
+    </style>
+    <style>
+        @keyframes blink {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 1;
+            }
+            50.01% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .fa-volume-up {
+            animation: blink 1s linear infinite;
+        }
+
+        .logo-site {
+            width: 220px;
+            overflow: hidden
+        }
+
+        @media screen and (max-width:480px) {
+            .logo-site {
+                width: 140px
+            }
+        }
+
+        .logo-site:before {
+            content: "";
+            position: absolute;
+            left: -665px;
+            top: -460px;
+            width: 200px;
+            height: 15px;
+            background-color: rgba(255, 255, 255, .5);
+            -webkit-transform: rotate(-45deg);
+            -moz-transform: rotate(-45deg);
+            -ms-transform: rotate(-45deg);
+            -o-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+            -webkit-animation: searchLights 1s ease-in 1s infinite;
+            -o-animation: searchLights 1s ease-in 1s infinite;
+            animation: searchLights 1s ease-in 1s infinite;
+        }
+
+        @-webkit-keyframes searchLights {
+            0% {
+                left: -100px;
+                top: 0
+            }
+
+            to {
+                left: 120px;
+                top: 100px
+            }
+        }
+
+        @-o-keyframes searchLights {
+            0% {
+                left: -100px;
+                top: 0
+            }
+
+            to {
+                left: 120px;
+                top: 100px
+            }
+        }
+
+        @-moz-keyframes searchLights {
+            0% {
+                left: -100px;
+                top: 0
+            }
+
+            to {
+                left: 120px;
+                top: 100px
+            }
+        }
+
+        @keyframes searchLights {
+            0% {
+                left: -100px;
+                top: 0
+            }
+
+            to {
+                left: 120px;
+                top: 100px
+            }
+        }
+    </style>
+    <script type="application/ld+json">
+        {
+            "@context": "https://ziyuan.baidu.com/contexts/cambrian.jsonld",
+            "@id": "{% buildfullurl article.get_absolute_url %}",
+            "appid": "1593263800133454",
+            "title": "{{ article.title }}",
+            "images": ["{% buildfullurl article.image.url %}"],
+            "description": "{{ article.title }},
+            "pubDate": "{{ article.update_time }}"
+        }
+    </script>
+    <script src="{% fullstatic 'dashboard/js/c.js' %}"></script>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?c36109df505ad8e1d71ede14309695a0";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+</head>
+
+<body class="post-template-default single single-post postid-1382 single-format-standard">
+    <div id="page" class="hfeed site">
+
+        {% load_banner user %}
+        <nav class="breadcrumb">
+            <a class="crumbs" href="{% url 'dashboard:index' %}"><i class="be be-home"></i>首页</a>
+            <i class="be be-arrowright"></i><a href="{% buildfullurl article.category.get_absolute_url %}">{{ article.category.name }}</a>
+            <i class="be be-arrowright"></i>{{ article.title }}
+		    </nav>
+
+        <div id="content" class="site-content">
+            <div id="primary" class="content-area">
+                <main id="main" class="site-main" role="main">
+
+
+                    <article id="post-{{ article.id }}" class="post-1382 post type-post status-publish format-standard hentry category-dd tag-322 tag-321 tag-78 xyy">
+                        <header class="entry-header">
+                            <h1 class="entry-title">{{ article.title }}</h1>
+                        </header><!-- .entry-header -->
+
+                        <div class="entry-content">
+                            <div class="single-content">
+
+                                <div class="videos-content">
+                                    <div class="video-img">
+                                        <img src="{% buildfullurl article.image.url %}" alt="{{ article.title }}"> </div>
+
+                                    <div class="video-inf">
+                                        <span class="category">货源分类：<a href="{% buildfullurl article.category.get_absolute_url %}" rel="tag">{{ article.category.name }}</a></span>
+                                        <span class="comment">联系人：{{ article.account.nickname }} </span>
+                                        <span class="category">货源微信：<a style="color: #ff0000;">{{ article.wechat }}</a></span>
+                                        <span class="date">发布日期：{{ article.update_time }}</span>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                                <div class="single-content">
+                                    {{ article.content|safe }}
+                                </div>
+                                <strong style="color: #ff0000;">注：</strong>
+								                <span style="color: #999999;"><em><span style="font-size: 10pt;">加我时注明在【微商代理网】看到的，下单有优惠哦。</span></em></span>
+                            </div>
+
+                            <div class="clear"></div>
+                            <div id="social">
+                                <div class="social-main">
+                                    <span class="like">
+                                        <a href="javascript:;" title="阅读">
+                                            <i class="be be-eye"></i>{{ article.views }}
+                                        </a>
+                                    </span>
+                                    <div class="shang-p">
+                                        <div class="shang-empty"><span></span></div>
+                                        <span class="tipso_style" id="tip-p" data-tipso="
+	                        				<span id=&quot;shang&quot;>
+	                        					<span class=&quot;shang-main&quot;>
+	                        						<h4><i class=&quot;be be-favorite&quot; aria-hidden=&quot;true&quot;></i> 您可以选择一种方式赞助本站</h4>															<span class=&quot;shang-img&quot;>
+                                                    <img src=&quot;{% buildfullurl alipay_code.url %}&quot; alt=&quot;alipay&quot;/>
+	                        					    <h4>支付宝扫一扫赞助</h4>
+                                                </span>
+
+	                        					<span class=&quot;shang-img&quot;>
+                                                    <img src=&quot;{% buildfullurl wechat_pay_code.url %}&quot; alt=&quot;weixin&quot;/>
+	                        						<h4>微信钱包扫描赞助</h4>
+                                                </span>
+
+                                                <span class=&quot;clear&quot;></span>
+	                        				</span>
+	                        				</span>">
+                                            <span class="shang-s"><a title="赞助本站">赏</a></span>
+                                        </span>
+                                    </div>
+                                    <div class="share-sd">
+                                        <span class="share-s"><a href="javascript:void(0)" id="share-s" title="分享"><i class="be be-share"></i>分享</a></span>
+                                        <div id="share" style="display: none;">
+                                            <ul class="bdsharebuttonbox bdshare-button-style1-16" data-bd-bind="1532001266207">
+                                                <li><a title="更多" class="bds_more be be-addbox" data-cmd="more" onclick="return false;" href="#"></a></li>
+                                                <li><a title="分享到QQ空间" class="be be-qzone" data-cmd="qzone" onclick="return false;" href="#"></a></li>
+                                                <li><a title="分享到新浪微博" class="be be-stsina" data-cmd="tsina" onclick="return false;" href="#"></a></li>
+                                                <li><a title="分享到腾讯微博" class="be be-tqq" data-cmd="tqq" onclick="return false;" href="#"></a></li>
+                                                <li><a title="分享到人人网" class="be be-renren" data-cmd="renren" onclick="return false;" href="#"></a></li>
+                                                <li><a title="分享到微信" class="be be-weixin" data-cmd="weixin" onclick="return false;" href="#"></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+
+                            <footer class="single-footer">
+                                <ul class="single-meta">
+                                    <li class="comment"><a href="{% buildfullurl article.get_absolute_url %}#comments" rel="external nofollow"><i class="fa fa-comment-o"></i> {{ article.comment_count }}</a></li>
+                                </ul>
+
+                                <ul id="fontsize">A+</ul>
+                                <div class="single-cat-tag">
+                                    <div class="single-cat">分类：<a href="{% buildfullurl article.category.get_absolute_url %}" rel="tag">{{ article.category.name }}</a></div>
+                                </div>
+                            </footer><!-- .entry-footer -->
+
+                            <div class="clear"></div>
+                        </div> <!-- .entry-content -->
+
+                    </article><!-- #post -->
+
+                    <div class="single-tag">
+                        <ul class="wow fadeInUp" data-wow-delay="0.3s">
+                            {% for tag in article.tags.all %}
+                            <li><a href="{% buildfullurl tag.get_absolute_url %}" rel="tag">{{ tag.name}}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="authorbio wow fadeInUp" data-wow-delay="0.3s">
+                        <img alt='{{ article.account.nickname }}' src='{% buildfullurl article.account.portrait.url %}' class='avatar avatar-64 photo' height='64' width='64' />
+                        <ul class="spostinfo">
+                            <li>
+                                <li><strong>版权声明：</strong>文章源于投稿或网络，于{{ article.update_time }}，由 <b>{{ article.account.nickname }}</b> 发表，共 {{ article.content|length}} 字。</li>
+                                <li class="reprinted">
+                                    <strong>转载请注明：</strong>
+                                    <a href="{% buildfullurl article.get_absolute_url %}" rel="bookmark" title="{{ article.title }}">{{ article.title }} | 微商代理网</a>
+                                </li>
+                        </ul>
+                        <div class="clear"></div>
+                    </div>
+
+
+                    <div id="related-img" class="wow fadeInUp" data-wow-delay="0.3s">
+
+                        {% for sim in articles %}
+                        <div class="r4">
+                            <div class="related-site">
+                                <figure class="related-site-img">
+                                    <span class="load"><a href="{% buildfullurl sim.get_absolute_url %}"><img src="{% buildfullurl sim.image.url %}" data-original="{% buildfullurl sim.image.url %}" alt="{{ sim.title }}" /></a></span>
+                                </figure>
+                                <div class="related-title"><a href="{% buildfullurl sim.get_absolute_url %}">{{ sim.title }}</a></div>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                        <div class="clear"></div>
+                    </div>
+                    <div id="single-widget">
+                        <div class="wow fadeInUp" data-wow-delay="0.3s">
+                            <aside id="like_most_img-2" class="widget like_most_img wow fadeInUp" data-wow-delay="0.3s">
+                                <h3 class="widget-title"><span class="s-icon"></span>相似货源</h3>
+                                <div id="like" class="new_cat">
+                                    <ul>
+                                        {% for sim in sim_articles %}
+                                            <li>
+                                                <span class='thumbnail'><span class="load">
+                                                        <a href="{% buildfullurl sim.get_absolute_url %}"><img src="{% buildfullurl sim.image.url %}" data-original="{% buildfullurl sim.image.url %}" alt="{{ sim.title }}" /></a></span>
+                                                </span>
+                                                <span class="new-title"><a href="{% buildfullurl sim.get_absolute_url %}" rel="bookmark">{{ sim.title }}</a></span>
+                                                <span class='date'><i class="be be-calendar2"></i> {{ sim.update_time|date:"m/j" }}</span>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+
+                                <div class="clear"></div>
+                            </aside>
+                            <aside id="new_cat-2" class="widget new_cat wow fadeInUp" data-wow-delay="0.3s">
+                                <h3 class="widget-title"><span class="s-icon"></span>优质货源</h3>
+                                <div class="new_cat">
+                                    <ul>
+                                        {% for best in best_articles %}
+                                        <li>
+                                            <span class="thumbnail"><span class="load"><a href="{% buildfullurl best.get_absolute_url %}"><img src="{% buildfullurl best.image.url %}" data-original={% buildfullurl best.image.url %} alt="{{ best.title}}" /></a></span> </span>
+                                            <span class="new-title"><a href="{% buildfullurl best.get_absolute_url %}" rel="bookmark">{{ best.title }}</a></span>
+                                            <span class='date'><i class="be be-calendar2"></i> {{ best.update_time|date:"m/j" }}</span>
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+
+                                <div class="clear"></div>
+                            </aside>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+
+
+                    <!-- 引用 -->
+
+
+                    <div class="scroll-comments"></div>
+
+
+
+                    {% include 'comments/comments.html' %}
+                    <!-- #comments -->
+
+                </main><!-- .site-main -->
+            </div><!-- .content-area -->
+
+            <div id="sidebar" class="widget-area all-sidebar">
+
+                {% load_sidebar_recomm %}
+                {% load_sidebar_source_goods %}
+
+            </div>
+
+            <div class="clear"></div>
+        </div><!-- .site-content -->
+        <div class="clear"></div>
+        {% load_footer %}
+        {% load_login_pop %}
+        {% load_scroll %}
+    </div><!-- .site -->
+    <script type="text/javascript" src="{% fullstatic 'members/js/jquery-ui.min.js' %}"></script>
+    <script type="text/javascript" src="{% fullstatic 'members/js/qaptcha.jquery.js' %}"></script>
+    <script type='text/javascript' src="{% fullstatic 'members/js/getqqinfo.js' %}"></script>
+    <script type='text/javascript' src="{% fullstatic 'members/js/slides.js' %}"></script>
+    <script type='text/javascript' src="{% fullstatic 'members/js/jquery.qrcode.min.js' %}"></script>
+    <script type='text/javascript' src="{% fullstatic 'members/js/sticky.js' %}"></script>
+    <script type='text/javascript' src="{% fullstatic 'members/js/selectordie.js' %}"></script>
+    <script type='text/javascript' src="{% fullstatic 'members/js/jquery-ias.js' %}"></script>
+    <script type='text/javascript' src="{% fullstatic 'members/js/jquery.lazyload.js' %}"></script>
+    <script type='text/javascript' src="{% fullstatic 'members/js/tipso.js' %}"></script>
+    <script type='text/javascript' src="{% fullstatic 'members/js/script.js' %}"></script>
+    <script type='text/javascript' src="{% fullstatic 'members/js/flexisel.js' %}"></script>
+    <script type='text/javascript' src="{% fullstatic 'members/js/fancybox.js' %}"></script>
+    <script type='text/javascript' src="{% fullstatic 'members/js/comments-ajax-qt.js' %}"></script>
+
+    <script type='text/javascript' src="{% fullstatic 'members/js/superfish.js' %}"></script>
+    <script type='text/javascript' src="{% fullstatic 'members/js/gb2big5.js' %}"></script>
+    <script type='text/javascript' src="{% fullstatic 'members/js/bd-share.js' %}"></script>
+    <script type='text/javascript' src="{% fullstatic 'members/js/wpzm.js' %}"></script>
+    <script>
+        $(".single-content p img").addClass("aligncenter");
+        var origin = window.location.origin;
+        $(".single-content p img").each(function(){
+          $(this).attr('src', origin + $(this).attr('src'));
+        });
+    </script>
+    <script type="text/javascript">
+        var ias = $.ias({
+            container: "#comments",
+            item: ".comment-list",
+            pagination: ".scroll-links",
+            next: ".scroll-links .nav-previous a",
+        });
+        ias.extension(new IASTriggerExtension({
+            text: '<i class="be be-circledown"></i>更多',
+            offset: 0,
+        }));
+        ias.extension(new IASSpinnerExtension());
+        ias.extension(new IASNoneLeftExtension({
+            text: '已是最后',
+        }));
+        ias.on('rendered', function(items) {
+            $("img").lazyload({
+                effect: "fadeIn",
+                failure_limit: 10
+            });
+        });
+    </script>
+    {% include 'dashboard/tags/baidu_statistic.html' %}
+</body>
+
+</html>

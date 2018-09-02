@@ -1,0 +1,447 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    {% block header %}
+    {% endblock %}
+</head>
+
+<body class="home blog">
+    <div id="page" class="hfeed site">
+
+        {% load_banner %}
+
+        <div id="content" class="site-content">
+            <div id="primary" class="content-area">
+                <main id="main" class="site-main" role="main">
+                    <div id="slideshow" class="wow fadeInUp" data-wow-delay="0.3s">
+                        <ul class="rslides" id="slider">
+                            {% for ad in latest_ad_left_up_round %}
+	                              <li>
+                                    <a href="{{ ad.get_absolute_url }}" rel="bookmark"><img src="{{ media_url }}{{ ad.image }}" alt="{{ ad.title }}" /></a>
+                                    <p class="slider-caption">{{ ad.title }}</p>
+	                              </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    <div class="cms-news-grid sort" name="1">
+                        <div class="marked-ico wow fadeIn" data-wow-delay="0.9s">推荐阅读</div>
+                        <div class="clear"></div>
+                    </div>
+                    <!-- 最新文章 -->
+                    <div class="cms-news sort" name="2">
+                        <div class="cms-news-grid">
+                            <div class="marked-ico wow fadeIn" data-wow-delay="0.9s">最近更新</div>
+                            {% for ad in latest_ad_left_up %}
+                            <article id="post-{{ ad.id }}" class="wow fadeInUp post-1365 post type-post status-publish format-standard hentry category-rrr category-dd tag-320 tag-45 tag-28 xyy" data-wow-delay="0.3s">
+
+                                    <span class="new-icon"><i class="be be-new"></i></span>
+
+                                    <figure class="thumbnail">
+                                      <span class="load"><a href="{{ ad.get_absolute_url }}"><img src="{{ ad.get_image_url }}" data-original="{{ media_url }}{{ ad.image }}" alt="{{ ad.title }}" /></a></span>			</figure>
+                                    <header class="entry-header">
+                                        <h2 class="entry-title"><a href="{{ ad.get_absolute_url }}" rel="bookmark">{{ ad.title }}</a></h2>
+                                    </header>
+
+                                    <div class="entry-content">
+                                        <div class="archive-content">
+                                            &nbsp; 佛友们，佛教的三长斋月之一的阴历五月到来了，佛教中的三长... </div>
+                                        <span class="entry-meta">
+                                            <span class="date">{{ ad.update_time|display_humantime }}</span><span class="views"><i class="be be-eye"></i> {{ ad.views }} views</span>
+                                        <div class="clear"></div>
+                                    </div>
+
+                                </article>
+                            {% endfor %}
+                            <div class="clear"></div>
+                        </div>
+
+                        <div class="line-four">
+                            <div class="clear"></div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+
+                    {% for category, articles in categorys.items %}
+                    <div class="line-one sort" name="6">
+
+                        <div class="cat-box wow fadeInUp" data-wow-delay="0.3s">
+                          <h3 class="cat-title"><a href="{{ category.get_absolute_url }}"><span class="title-i"><span></span><span></span><span></span><span></span></span>{{ category.name }}<span class="more-i"><span></span><span></span><span></span></span></a></h3>
+                            <div class="clear"></div>
+                            <div class="cat-site">
+                                <div class="line-one-img one-img-5">
+                                    <figure class="line-one-thumbnail">
+                                        <span class="load"><a href="http://www.xuefogm.com/1353.html"><img src="static/picture/loading.png" data-original=http://www.xuefogm.com/wp-content/themes/begin/img/random/7.jpg alt="净空法师：能改变命运是否也是命中注定的" /></a></span> </figure>
+                                    <figure class="line-one-thumbnail">
+                                        <span class="load"><a href="http://www.xuefogm.com/1337.html"><img src="static/picture/loading.png" data-original=http://www.xuefogm.com/wp-content/themes/begin/img/random/1.jpg alt="坚持放生改变命运的临界点即将到来" /></a></span> </figure>
+                                    <div class="clear"></div>
+                                </div>
+                                <ul class="cat-one-list">
+                                    {% for article in articles %}
+                                        <li class="list-date">{{ article.update_time|display_humantime }}</li>
+                                        <li class="list-cat-title"><a href="{{ article.get_absolute_url }}" rel="bookmark">{{ article.title }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <div class="line-four sort" name="8">
+                        <div class="xl4 xm4">
+                            <div class="picture-h wow fadeInUp" data-wow-delay="0.3s">
+                                <figure class="picture-h-img">
+                                    <span class="load"><a class="videor" href="http://www.xuefogm.com/video/wmsrh/"><img src="static/picture/loading.png" data-original=http://www.xuefogm.com/wp-content/uploads/2018/02/1484903144116.jpg alt="视频：我们是如何把福报吃完的" /><i class="be be-play"></i></a></span> </figure>
+                                <h2 class="picture-h-title"><a href="http://www.xuefogm.com/video/wmsrh/" rel="bookmark">视频：我们是如何把福报吃完的</a></h2>
+                            </div>
+                        </div>
+
+                        <div class="xl4 xm4">
+                            <div class="picture-h wow fadeInUp" data-wow-delay="0.3s">
+                                <figure class="picture-h-img">
+                                    <span class="load"><a class="videor" href="http://www.xuefogm.com/video/shuihid/"><img src="static/picture/loading.png" data-original=http://www.xuefogm.com/wp-content/themes/begin/img/random/55.jpg alt="视频：水知道答案全集" /><i class="be be-play"></i></a></span> </figure>
+                                <h2 class="picture-h-title"><a href="http://www.xuefogm.com/video/shuihid/" rel="bookmark">视频：水知道答案全集</a></h2>
+                            </div>
+                        </div>
+
+                        <div class="xl4 xm4">
+                            <div class="picture-h wow fadeInUp" data-wow-delay="0.3s">
+                                <figure class="picture-h-img">
+                                    <span class="load"><a class="videor" href="http://www.xuefogm.com/video/fsyeg/"><img src="static/picture/loading.png" data-original="http://www.xuefogm.com/wp-content/themes/begin/img/random/10.jpg" alt="视频:圣贤教育改变命运" /><i class="be be-play"></i></a></span> </figure>
+                                <h2 class="picture-h-title"><a href="http://www.xuefogm.com/video/fsyeg/" rel="bookmark">视频:圣贤教育改变命运</a></h2>
+                            </div>
+                        </div>
+
+                        <div class="xl4 xm4">
+                            <div class="picture-h wow fadeInUp" data-wow-delay="0.3s">
+                                <figure class="picture-h-img">
+                                    <span class="load"><a class="videor" href="http://www.xuefogm.com/video/erer/"><img src="static/picture/loading.png" data-original=http://www.xuefogm.com/wp-content/themes/begin/img/random/29.jpg alt="视频：世上最美的月饼" /><i class="be be-play"></i></a></span> </figure>
+                                <h2 class="picture-h-title"><a href="http://www.xuefogm.com/video/erer/" rel="bookmark">视频：世上最美的月饼</a></h2>
+                            </div>
+                        </div>
+
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="tab-site wow fadeInUp sort" data-wow-delay="0.3s" name="10">
+                        <div id="layout-tab" class="tab-product">
+                            <h2 class="tab-hd">
+                                <span class="tab-hd-con"><a href="javascript:">微商相册</a></span>
+                                <span class="tab-hd-con"><a href="javascript:">微商相册1</a></span>
+                                <span class="tab-hd-con"><a href="javascript:">微商相册2</a></span>
+                            </h2>
+
+                            <div class="tab-bd dom-display">
+
+                                <ul class="tab-bd-con current">
+                                    {% for new in news %}
+                                        <li class="list-title"><a href="http://www.xuefogm.com/1011.html" rel="bookmark"><i class="be be-arrowright"></i>{{ new.title }}</a></li>
+                                    {% endfor %}
+                                </ul>
+
+                                <ul class="tab-bd-con">
+                                    {% for new in news1 %}
+                                        <li class="list-title"><a href="http://www.xuefogm.com/1011.html" rel="bookmark"><i class="be be-arrowright"></i>{{ new.title }}</a></li>
+                                    {% endfor %}
+                                </ul>
+
+                                <ul class="tab-bd-con">
+                                    {% for new in news2 %}
+                                        <li class="list-title"><a href="http://www.xuefogm.com/1011.html" rel="bookmark"><i class="be be-arrowright"></i>{{ new.title }}</a></li>
+                                    {% endfor %}
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </main>
+            </div>
+            <div id="sidebar" class="widget-area cms-sidebar">
+                <div class="wow fadeInUp" data-wow-delay="0.5s">
+                    <aside id="text-2" class="widget widget_text wow fadeInUp" data-wow-delay="0.3s">
+                        <h3 class="widget-title"><span class="title-i"><span class="title-i-t"></span><span class="title-i-b"></span><span class="title-i-b"></span><span class="title-i-t"></span></span>新浪微博</h3>
+                        <div class="textwidget"><iframe width="100%" height="550" class="share_self" frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=2&ptype=0&speed=500&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=0&uid=1655544581&verifier=7ed710f3&dpc=1"></iframe></div>
+                        <div class="clear"></div>
+                    </aside>
+                    <aside id="hot_commend-4" class="widget hot_commend wow fadeInUp" data-wow-delay="0.3s">
+                        <h3 class="widget-title"><span class="title-i"><span class="title-i-t"></span><span class="title-i-b"></span><span class="title-i-b"></span><span class="title-i-t"></span></span>本站推荐</h3>
+                        <div id="hot" class="hot_commend">
+                            <ul>
+                                <li>
+                                    <span class="thumbnail">
+                                        <span class="load"><a href="http://www.xuefogm.com/937.html"><img src="static/picture/loading.png" data-original="http://www.xuefogm.com/wp-content/themes/begin/timthumb.php?src=http://www.xuefogm.com/wp-content/uploads/2017/11/IMG_20171111_232531.jpg&w=280&h=210&a=&zc=1" alt="30岁女子邪淫23年，削尽人生福报，泣首劝世人" /></a></span> </span>
+                                    <span class="hot-title"><a href="http://www.xuefogm.com/937.html" rel="bookmark">30岁女子邪淫23年，削尽人生福报，泣首劝世人</a></span>
+                                    <span class="views"><i class="be be-eye"></i> 3,676 views</span> <i class="be be-thumbs-up-o">&nbsp;191</i>
+                                </li>
+                                <li>
+                                    <span class="thumbnail">
+                                        <span class="load"><a href="http://www.xuefogm.com/718.html"><img src="static/picture/loading.png" data-original="http://www.xuefogm.com/wp-content/themes/begin/timthumb.php?src=http://www.xuefogm.com/wp-content/uploads/2015/09/20065125150262.jpg&w=280&h=210&a=&zc=1" alt="给父母大摆寿宴真的是孝顺吗，只会折寿折福是在害命" /></a></span> </span>
+                                    <span class="hot-title"><a href="http://www.xuefogm.com/718.html" rel="bookmark">给父母大摆寿宴真的是孝顺吗，只会折寿折福是在害命</a></span>
+                                    <span class="views"><i class="be be-eye"></i> 2,919 views</span> <i class="be be-thumbs-up-o">&nbsp;198</i>
+                                </li>
+                                <li>
+                                    <span class="thumbnail">
+                                        <span class="load"><a href="http://www.xuefogm.com/218.html"><img src="static/picture/loading.png" data-original=http://www.xuefogm.com/wp-content/themes/begin/img/random/16.jpg alt="念佛放生、诵经感应：月薪从800到9600，真实不虚" /></a></span> </span>
+                                    <span class="hot-title"><a href="http://www.xuefogm.com/218.html" rel="bookmark">念佛放生、诵经感应：月薪从800到9600，真实不虚</a></span>
+                                    <span class="views"><i class="be be-eye"></i> 2,597 views</span> <i class="be be-thumbs-up-o">&nbsp;489</i>
+                                </li>
+                                <li>
+                                    <span class="thumbnail">
+                                        <span class="load"><a href="http://www.xuefogm.com/100.html"><img src="static/picture/loading.png" data-original=http://www.xuefogm.com/wp-content/themes/begin/img/random/27.jpg alt="淫欲感召非人吸食精气的龌龊真相" /></a></span> </span>
+                                    <span class="hot-title"><a href="http://www.xuefogm.com/100.html" rel="bookmark">淫欲感召非人吸食精气的龌龊真相</a></span>
+                                    <span class="views"><i class="be be-eye"></i> 4,286 views</span> <i class="be be-thumbs-up-o">&nbsp;529</i>
+                                </li>
+                                <li>
+                                    <span class="thumbnail">
+                                        <span class="load"><a href="http://www.xuefogm.com/71.html"><img src="static/picture/loading.png" data-original=http://www.xuefogm.com/wp-content/themes/begin/img/random/5.jpg alt="佛法是究竟的改命之道，易学算命术等并不究竟" /></a></span> </span>
+                                    <span class="hot-title"><a href="http://www.xuefogm.com/71.html" rel="bookmark">佛法是究竟的改命之道，易学算命术等并不究竟</a></span>
+                                    <span class="views"><i class="be be-eye"></i> 1,996 views</span> <i class="be be-thumbs-up-o">&nbsp;183</i>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="clear"></div>
+                    </aside>
+                    <aside id="hot_post_img-2" class="widget hot_post_img wow fadeInUp" data-wow-delay="0.3s">
+                        <h3 class="widget-title"><span class="title-i"><span class="title-i-t"></span><span class="title-i-b"></span><span class="title-i-b"></span><span class="title-i-t"></span></span>热门视频</h3>
+                        <div id="hot_post_widget" class="new_cat">
+
+                            <ul>
+                                <li><span class='thumbnail'><span class="load"><a href="http://www.xuefogm.com/1159.html"><img src="static/picture/loading.png" data-original=http://www.xuefogm.com/wp-content/themes/begin/img/random/21.png alt="治病救人消灾除祸-山西小院（全集）" /></a></span></span><span class="new-title"><a href="http://www.xuefogm.com/1159.html" rel="bookmark">治病救人消灾除祸-山西小院（全集）</a></span><span class='date'>02/24</span><span class="views"><i class="be be-eye"></i> 8,436 views</span></li>
+                                <li><span class='thumbnail'><span class="load"><a href="http://www.xuefogm.com/1134.html"><img src="static/picture/loading.png" data-original=http://www.xuefogm.com/wp-content/uploads/2018/02/56.png alt="陈大惠采访净空法师-阿弥陀佛在人间（全集）" /></a></span></span><span class="new-title"><a href="http://www.xuefogm.com/1134.html" rel="bookmark">陈大惠采访净空法师-阿弥陀佛在人间（全集）</a></span><span class='date'>02/23</span><span class="views"><i class="be be-eye"></i> 5,091 views</span></li>
+                                <li><span class='thumbnail'><span class="load"><a href="http://www.xuefogm.com/1176.html"><img src="static/picture/loading.png" data-original=http://www.xuefogm.com/wp-content/uploads/2018/02/2.jpg alt="脑场爱能量公益讲座-李杲老师（全集）" /></a></span></span><span class="new-title"><a href="http://www.xuefogm.com/1176.html" rel="bookmark">脑场爱能量公益讲座-李杲老师（全集）</a></span><span class='date'>02/24</span><span class="views"><i class="be be-eye"></i> 4,172 views</span></li>
+                                <li><span class='thumbnail'><span class="load"><a href="http://www.xuefogm.com/1215.html"><img src="static/picture/loading.png" data-original=http://www.xuefogm.com/wp-content/themes/begin/img/random/50.jpg alt="大型公益纪录片-圣贤教育改变命运（全集）" /></a></span></span><span class="new-title"><a href="http://www.xuefogm.com/1215.html" rel="bookmark">大型公益纪录片-圣贤教育改变命运（全集）</a></span><span class='date'>02/25</span><span class="views"><i class="be be-eye"></i> 3,821 views</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="clear"></div>
+                    </aside>
+                    {% load_tag %}
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div id="below-main">
+                <div class="wow fadeInUp sort" data-wow-delay="0.3s" name="14">
+                    <div class="clear"></div>
+                    <ul id="flexisel">
+                        {% for ad in latest_ad_left_below_round %}
+                            <li>
+                                <a href="{{ ad.get_absolute_url }}"><img src="{{ ad.get_image_url }}" alt="{{ ad.title }}" /></a>
+                                <h2 class="flexisel-h-title"><a href="{{ ad.get_absolute_url }}" rel="bookmark">{{ ad.title }}</a></h2>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+                <div class="line-big sort" name="15">
+
+                    {% for category, articles in latest_ad_left_below.items %}
+                    <div class="xl3 xm3">
+                        <div class="cat-box wow fadeInUp" data-wow-delay="0.3s">
+                            <h3 class="cat-title"><a href="{{ category.get_absolute_url }}"><span class="title-i"><span></span><span></span><span></span><span></span></span>{{ category.name }}<span class="more-i"><span></span><span></span><span></span></span></a></h3>
+                            <div class="clear"></div>
+                            <div class="cat-site">
+                                <h2 class="entry-title"><a href="{{ articles.0.get_absolute_url }}" rel="bookmark">{{ articles.0.title }}</a></h2>						<div class="cat-img-small">
+                                <div class="cat-img-small">
+                                    <figure class="thumbnail">
+                                        <span class="load">
+                                            <a href="{{ articles.0.get_absolute_url }}"><img src="{{ articles.0.get_image_url }}" data-original={{ articles.0.get_image_url }} alt="{{ articles.0.title }}" /></a>
+                                        </span>
+                                    </figure>
+					                          <div class="cat-main"> {{ articles.0.content|slice:"88" }} ...</div>
+                                </div>
+
+                                <div class="clear"></div>
+
+                                <ul class="cat-list">
+                                    {% for article in articles|slice:"1:" %}
+                                        <li class="list-date">{{ article.update_time|display_humantime }}</li>
+                                        <li class="list-title"><a href="{{ article.get_absolute_url }}" rel="bookmark"><i class="be be-arrowright"></i>{{ article.title }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div><!-- .site-content -->
+        <div class="clear"></div>
+
+        <div class="links-box">
+            <div id="links">
+                {% for link in links %}
+                    <ul class="lx7"><li class="link-f link-name wow fadeInUp" data-wow-delay="0.3s"><a href="{{ link.url }}">{{ link.name }}</a></li></ul>
+          	    {% endfor %}
+                <div class="clear"></div>
+            </div>
+        </div>
+
+        {% include 'dashboard/tags/footer.html' %} 
+        <div id="login">
+
+            <div id="login-tab" class="login-tab-product fadeInDown animated">
+                <h2 class="login-tab-hd">
+                    <span class="login-tab-hd-con"><a href="javascript:">登录</a></span>
+                    <span class="login-tab-hd-con"><a href="javascript:">注册</a></span>
+                    <span class="login-tab-hd-con"><a href="javascript:">找回密码</a></span> </h2>
+
+                <div class="login-tab-bd login-dom-display">
+                    <div class="login-tab-bd-con login-current">
+                        <div id="tab1_login" class="tab_content_login">
+                            <form method="post" action="http://www.xuefogm.com/wp-login.php" class="wp-user-form">
+                                <div class="username">
+                                    <label for="user_login">用户名</label>
+                                    <input type="text" name="log" value="" size="20" id="user_login" tabindex="11" />
+                                </div>
+                                <div class="password">
+                                    <label for="user_pass">密码</label>
+                                    <input type="password" name="pwd" value="" size="20" id="user_pass" tabindex="12" />
+                                </div>
+                                <div class="login-form"></div>
+                                <div class="login_fields">
+                                    <div class="rememberme">
+                                        <label for="rememberme">
+                                            <input type="checkbox" name="rememberme" value="forever" checked="checked" id="rememberme" tabindex="13" />记住我的登录信息 </label>
+                                    </div>
+                                    <input type="submit" name="user-submit" value="登录" tabindex="14" class="user-submit" />
+                                    <input type="hidden" name="redirect_to" value="/" />
+                                    <input type="hidden" name="user-cookie" value="1" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="login-tab-bd-con">
+                        <div id="tab2_login" class="tab_content_login">
+                            <form method="post" action="http://www.xuefogm.com/wp-login.php?action=register" class="wp-user-form">
+                                <div class="username">
+                                    <label for="user_login">用户名</label>
+                                    <input type="text" name="user_login" value="" size="20" id="user_login" tabindex="101" />
+                                </div>
+                                <div class="password">
+                                    <label for="user_email">电子邮件地址</label>
+                                    <input type="text" name="user_email" value="" size="25" id="user_email" tabindex="102" />
+                                </div>
+                                <div class="login_fields">
+                                    <input type="submit" name="user-submit" value="注册" class="user-submit" tabindex="103" />
+                                    <input type="hidden" name="redirect_to" value="/?register=true" />
+                                    <input type="hidden" name="user-cookie" value="1" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="login-tab-bd-con">
+                        <div id="tab3_login" class="tab_content_login">
+                            <p class="message">输入用户名或电子邮箱地址，您会收到一封新密码链接的电子邮件。</p>
+                            <form method="post" action="http://www.xuefogm.com/wp-login.php?action=lostpassword" class="wp-user-form">
+                                <div class="username">
+                                    <label for="user_login" class="hide">用户名或电子邮件地址</label>
+                                    <input type="text" name="user_login" value="" size="20" id="user_login" tabindex="1001" />
+                                </div>
+                                <div class="login_fields">
+                                    <div class="login-form"></div>
+                                    <input type="submit" name="user-submit" value="获取新密码" class="user-submit" tabindex="1002" />
+                                    <input type="hidden" name="redirect_to" value="/?reset=true" />
+                                    <input type="hidden" name="user-cookie" value="1" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <ul id="scroll">
+            <li class="log log-no"><a class="log-button" title="文章目录"><i class="be be-menu"></i></a><div class="log-prompt">
+                    <div class="log-arrow">文章目录</div>
+                </div>
+            </li>
+            <li><a class="scroll-h" title="返回顶部"><i class="be be-arrowup"></i></a></li>
+            <li><a class="scroll-b" title="转到底部"><i class="be be-arrowdown"></i></a></li>
+            <li class="gb2-site"><a id="gb2big5"><span>繁</span></a></li>
+            <li class="qqonline">
+                <div class="online">
+                    <a href="javascript:void(0)"><i class="be be-qq"></i></a>
+                </div>
+                <div class="qqonline-box">
+                    <div class="qqonline-main">
+                        <div class="nline-wiexin">
+                            <h4>微信</h4>
+                            <img title="微信" alt="微信" src="static/picture/4568.png" />
+                        </div>
+                        <div class="nline-qq">
+                            <h4>在线咨询</h4>
+                            <a target="_blank" rel="external nofollow" href="http://wpa.qq.com/msgrd?v=3&uin=1029108626&site=qq&menu=yes" title="QQ在线咨询" rel="external nofollow"><i class="be be-qq"></i></a>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="nline-phone">
+                            <i class="be be-favoriteoutline"></i>选择一种方式联系我们！ </div>
+                    </div>
+                    <span class="qq-arrow"><span class="arrow arrow-y"><i class="be be-playarrow"></i></span><span class="arrow arrow-x"><i class="be be-playarrow"></i></span></span>
+                </div>
+            </li>
+            <li class="qr-site"><a href="javascript:void(0)" class="qr" title="本页二维码"><i class="be be-qr-code"></i><span class="qr-img"><span id="output"><img class="alignnone" src="static/picture/图片2.png" alt="icon" /></span><span class="arrow arrow-z"><i class="be be-playarrow"></i></span><span class="arrow arrow-y"><i class="be be-playarrow"></i></span></span></a></li>
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    if (!+[1, ]) {
+                        present = "table";
+                    } else {
+                        present = "canvas";
+                    }
+                    $('#output').qrcode({
+                        render: present,
+                        text: window.location.href,
+                        width: "150",
+                        height: "150"
+                    });
+                });
+            </script>
+        </ul>
+    </div><!-- .site -->
+    <script type='text/javascript' src="{% static 'dashboard/js/editor.js' %}"></script>
+    <script type='text/javascript' src="{% static 'dashboard/js/slides.js' %}"></script>
+    <script type='text/javascript' src="{% static 'dashboard/js/jquery.qrcode.min.js' %}"></script>
+    <script type='text/javascript' src="{% static 'dashboard/js/sticky.js' %}"></script>
+    <script type='text/javascript' src="{% static 'dashboard/js/selectordie.js' %}"></script>
+    <script type='text/javascript' src="{% static 'dashboard/js/jquery-ias.js' %}"></script>
+    <script type='text/javascript' src="{% static 'dashboard/js/jquery.lazyload.js' %}"></script>
+    <script type='text/javascript' src="{% static 'dashboard/js/tipso.js' %}"></script>
+    <script type='text/javascript' src="{% static 'dashboard/js/script.js' %}"></script>
+    <script type='text/javascript' src="{% static 'dashboard/js/flexisel.js' %}"></script>
+    <script type='text/javascript' src="{% static 'dashboard/js/superfish.js' %}"></script>
+    <script type='text/javascript' src="{% static 'dashboard/js/gb2big5.js' %}"></script>
+    <script type='text/javascript' src="{% static 'dashboard/js/wpzm.js' %}"></script>
+    <script type='text/javascript' src="{% static 'dashboard/js/3dtag.js' %}"></script>
+    <script type="text/javascript">
+        var ias = $.ias({
+            container: "#main",
+            item: "article",
+            pagination: "#nav-below",
+            next: "#nav-below .nav-previous a",
+        });
+        ias.extension(new IASTriggerExtension({
+            text: '<i class="be be-circledown"></i>更多',
+            offset: 3,
+        }));
+        ias.extension(new IASSpinnerExtension());
+        ias.extension(new IASNoneLeftExtension({
+            text: '已是最后',
+        }));
+        ias.on('rendered', function(items) {
+            $("img").lazyload({
+                effect: "fadeIn",
+                failure_limit: 70
+            });
+        })
+    </script>
+</body>
+
+</html>

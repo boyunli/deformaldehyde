@@ -1,0 +1,19 @@
+{% load fullurl %}
+<aside id="hot_commend-4" class="widget hot_commend wow fadeInUp" data-wow-delay="0.3s">
+    <h3 class="widget-title"><span class="title-i"><span class="title-i-t"></span><span class="title-i-b"></span><span class="title-i-b"></span><span class="title-i-t"></span></span>本站推荐</h3>
+    <div id="hot" class="hot_commend">
+        <ul>
+            {% for recomm in recomms %}
+            <li>
+                <span class="thumbnail">
+                    <span class="load"><a href="{% buildfullurl recomm.get_absolute_url %}"><img src="{% buildfullurl recomm.image.url %}" data-original="{% buildfullurl recomm.image.url %}" alt="{{ recomm.title }}" /></a></span> 
+                </span>
+                <span class="hot-title"><a href="{% buildfullurl recomm.get_absolute_url %}" rel="bookmark">{{ recomm.title }}</a></span>
+                <span class="views"><i class="be be-calendar2"></i> {{ recomm.update_time|date:"m/j"}}</span> 
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="clear"></div>
+</aside>

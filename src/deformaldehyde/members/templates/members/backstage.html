@@ -1,0 +1,635 @@
+﻿{% load static %}
+{% load dashboard_extras %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <title>个人中心 | 微商代理网</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <link rel="shortcut icon" href="{% static 'dashboard/images/favicon.jpg' %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static 'dashboard/images/favicon.jpg' %}" />
+    <!--[if lt IE 9]>
+    <script src="static/js/html5.js"></script>
+    <script src="static/js/css3-mediaqueries.js"></script>
+    <![endif]-->
+    <link rel='stylesheet' id='layerslider-css' href="{% static 'members/css/layerslider.css' %}" type='text/css' media='all' />
+    <link rel='stylesheet' id='ls-google-fonts-css' href="{% static 'members/css/d75a46e210f24646abde2f6ec040fa24.css' %}" type='text/css' media='all' />
+    <link rel='stylesheet' id='begin-style-css'  href="{% static 'dashboard/css/style.css' %}" type='text/css' media='all' />
+    <link rel='stylesheet' id='fonts-css'  href="{% static 'dashboard/css/fonts.css' %}" type='text/css' media='all' />
+    <link rel='stylesheet' id='iconfontd-css' href="{% static 'dashboard/css/font_564965_qh7d0ejbukcblnmi.css' %}" type='text/css' media='all' />
+    <link rel='stylesheet' id='highlight-css' href="{% static 'members/css/highlight.css' %}" type='text/css' media='all' />
+    <link rel='stylesheet' id='font-awesome-four-css'  href="{% static 'dashboard/css/font-awesome.min.css' %}" type='text/css' media='all' />
+    <script type='text/javascript' src="{% static 'members/js/greensock.js' %}"></script>
+    <script type='text/javascript' src="{% static 'dashboard/js/jquery.min.js' %}"></script>
+    <script type='text/javascript'>
+        /* <![CDATA[ */
+        var LS_Meta = {
+            "v": "5.6.9"
+        };
+        /* ]]> */
+    </script>
+    <script type='text/javascript' src="{% static 'members/js/layerslider.kreaturamedia.jquery.js' %}"></script>
+    <script type='text/javascript' src="{% static 'members/js/layerslider.transitions.js' %}"></script>
+    <meta name="generator" content="Powered by LayerSlider 5.6.9 - Multi-Purpose, Responsive, Parallax, Mobile-Friendly Slider Plugin for WordPress." />
+    <!-- LayerSlider updates and docs at: https://kreaturamedia.com/layerslider-responsive-wordpress-slider-plugin/ -->
+    <style>
+        #content,
+        .header-sub,
+        .top-nav,
+        #top-menu,
+        #mobile-nav,
+        #main-search,
+        #search-main,
+        .breadcrumb,
+        .footer-widget,
+        .links-box,
+        .g-col,
+        .links-group #links,
+        .menu-img {
+            width: 1130px;
+        }
+
+        @media screen and (max-width: 1130px) {
+            #content,
+            .breadcrumb,
+            .footer-widget,
+            .links-box,
+            #top-menu,
+            .top-nav,
+            #main-search,
+            #search-main,
+            #mobile-nav,
+            .header-sub,
+            .breadcrumb,
+            .g-col,
+            .links-group #links,
+            .menu-img {
+                width: 98%;
+            }
+        }
+    </style>
+    <style>
+        #site-nav .down-menu>li>a:hover,
+        #site-nav .down-menu>li.sfHover>a {
+            background: transparent;
+            color: #ef5a6e !important;
+        }
+
+        #site-nav .down-menu>.current-menu-item>a,
+        #site-nav .down-menu>.current-menu-item>a:hover {
+            background: transparent;
+            color: #ef5a6e !important;
+        }
+
+        /*阴影效果*/
+        .post:hover {
+            box-shadow: 0 0 20px 3px #D7E6F0;
+            z-index: 1;
+        }
+
+        .timeline-block .post:hover {
+            box-shadow: none;
+        }
+
+        .search-page .post:hover {
+            box-shadow: none;
+        }
+
+        /*修复文章作者信息错位*/
+        .authorbio img {
+            float: left;
+            height: 50px;
+            width: 50px;
+            margin-right: 10px;
+        }
+    </style>
+    <meta name="generator" content="Powered by WPBakery Page Builder - drag and drop page builder for WordPress." />
+    <!--[if lte IE 9]><link rel="stylesheet" type="text/css" href="static/css/vc_lte_ie9.min.css" media="screen"><![endif]-->
+    <style type="text/css" id="custom-background-css">
+        body.custom-background {
+            background-color: #e5f1f9;
+        }
+    </style>
+    <noscript>
+        <style type="text/css">
+            .wpb_animate_when_almost_visible {
+                opacity: 1;
+            }
+        </style></noscript>
+    <style type="text/css">
+        .nav {
+            display: none;
+        }
+
+        @media only screen and (max-width:450px) {
+            .site-info {
+                padding: 15px 0 60px 0;
+            }
+            #advert_widget,
+            .php_text .widget-text,
+            .widget .textwidget {
+                padding: 0;
+            }
+            .nav {
+                position: fixed;
+                z-index: 999;
+                bottom: 0;
+                width: 100%;
+                height: 52px;
+                display: block;
+                right: 0;
+                box-shadow: 0px 0px 10px 3px rgba(223, 233, 247, 1.0);
+                -webkit-box-shadow: 0px 0px 10px 3px rgba(223, 233, 247, 1.0);
+                -moz-box-shadow: 0px 0px 10px 3px rgba(223, 233, 247, 1.0);
+                -o-box-shadow: 0px 0px 10px 3px rgba(223, 233, 247, 1.0);
+                -ms-box-shadow: 0px 0px 10px 3px rgba(223, 233, 247, 1.0);
+            }
+            .nav {
+                padding-left: 0;
+                margin-bottom: 0;
+                list-style: none;
+            }
+            .nav img {
+                width: 50px !important;
+                height: 50px !important;
+            }
+            .nav>ul {
+                position: relative;
+                z-index: 1;
+                height: 52px;
+                background: rgba(255, 255, 255, 1);
+                list-style-image: none;
+                list-style-type: none;
+                margin: 0px;
+                padding: 0px !important;
+            }
+            .nav ul li {
+                position: relative;
+                float: left;
+                width: 20%;
+                text-align: center;
+                margin: 0px;
+                padding: 0px;
+                list-style-image: none;
+                list-style-type: none;
+                top: 0px;
+                left: 0%;
+            }
+            .nav ul li a {
+                display: block;
+                margin-right: auto;
+                margin-left: auto;
+            }
+        }
+    </style>
+
+</head>
+
+<body data-rsssl=1 class="page-template page-template-pages page-template-template-user page-template-pagestemplate-user-php page page-id-93 logged-in custom-background wpb-js-composer js-comp-ver-5.5.2 vc_responsive">
+    <div id="page" class="hfeed site">
+
+        {% load_banner user %}
+
+        <div id="content" class="site-content">
+          <link rel="stylesheet" href="{% static 'members/css/user-center.css' %}" />
+          <script type="text/javascript" src="{% static 'members/js/responsive-tabs.js' %}"></script>
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    $('#usertab').easyResponsiveTabs({
+                        type: 'vertical',
+                        width: 'auto',
+                        fit: true,
+                        closed: 'accordion',
+                        tabidentify: 'hor_1',
+                        activate: function(event) {
+                            var $tab = $(this);
+                            var $info = $('#nested-tabInfo2');
+                            var $name = $('span', $info);
+                            $name.text($tab.text());
+                            $info.show();
+                        }
+                    });
+                });
+            </script>
+
+            <div id="personal">
+                <div id="container">
+                    <div id="usertab">
+                        <ul class="resp-tabs-list hor_1">
+                            <li><i class="be be-businesscard"></i>我的信息</li>
+                            <li><i class="be be-personoutline"></i>修改资料</li>
+                            <li><i class="be be-file"></i>我的货源</li>
+                            <li><a href="{% url 'members:article_post' %}"><i class="be be-edit"></i>发布信息</a></li>
+                        </ul>
+
+                        <div class="resp-tabs-container hor_1">
+
+                            <div>
+                                <h4>我的信息</h4>
+                                <div class="m-personal">
+                                    <div class="personal-bg">
+                                      <img src="{% static 'members/picture/000.jpg' %}">
+                                    </div>
+
+                                    <p>今天是：
+                                        <script type="text/javascript">
+                                            var d, s = "";
+                                            var x = new Array("星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六");
+                                            d = new Date();
+                                            s += d.getFullYear() + "年" + (d.getMonth() + 1) + "月" + d.getDate() + "日 ";
+                                            s += x[d.getDay()];
+                                            document.writeln(s);
+                                        </script>
+                                    </p>
+                                    <div class="m-logout"><a href="{% url "members:logout" %}">登出</a></div>
+                                    <div class="my-avatar">
+                                        <div class="m-img"><img alt='' src='static/picture/169bfebb651642ef8099e28b7730437c.gif' class='avatar avatar-64 photo wpfla ' width='64' height='64' /></div>
+                                        <div class="m-name"><span>欢迎回来！</strong></span><br />{{ user.username }}
+                                        </div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+
+
+                                <div class="my-info">
+                                    <ul>
+                                      <li><strong>用户名</strong>{{ username }}
+                                        </li>
+                                        <li><strong>呢称</strong>{{ nickname }}
+                                        </li>
+                                        <li><strong>角色</strong>{{ level }}
+                                        </li>
+                                        <li><strong>邮箱</strong>{{ email }}
+                                        </li>
+                                    </ul>
+                                    <ul>
+                                        <li><strong>我的评论</strong>{{ len_comments }}</li>
+                                        <li><strong>我的文章</strong>{{ len_articles }}</li>
+                                        <li><strong>注册时间</strong>{{ date_joined }}</li>
+                                        <li><strong>最后登录</strong>{{ last_login }}</li>
+                                        <li><strong>站点</strong></li>
+                                    </ul>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+
+                            <div>
+                                <h4>个人资料</h4>
+
+
+                                <style type="text/css">
+                                    #my-profile form .box-boa-1 {
+                                        border-collapse: collapse;
+                                        border: none;
+                                    }
+
+                                    #my-profile th {
+                                        font-size: 14px;
+                                        padding: 5px 5px 5px 14px;
+                                        border: solid#ddd 1px;
+                                        vertical-align: middle;
+                                    }
+
+                                    #my-profile td {
+                                        font-size: 14px;
+                                        padding: 5px;
+                                        border: solid#ddd 1px;
+                                        vertical-align: middle;
+                                    }
+
+                                    #my-profile .upfile input {
+                                        background: #2f889a;
+                                        color: #fff;
+                                        width: 98%;
+                                        cursor: pointer;
+                                        border: 1px solid #2f889a !important;
+                                        border-radius: 2px;
+                                        -webkit-appearance: none;
+                                        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+                                        margin-top: 12px;
+                                        margin-right: 0;
+                                        margin-bottom: 12px;
+                                        margin-left: 0;
+                                        height: 40px;
+                                    }
+
+                                    #my-profile .upfile input:hover {
+                                        background: #4c94a2;
+                                        border: 1px solid #4c94a2;
+                                        transition: all 0.2s ease-in 0s;
+                                    }
+
+                                    @media only screen and (max-width: 600px) {
+                                        #my-profile {
+                                            width: 100%;
+                                        }
+                                        #my-profile th {
+                                            float: left;
+                                            width: 100%;
+                                            border-top-style: none;
+                                            border-bottom-style: none;
+                                        }
+                                        #my-profile form .box-boa-1-1 {
+                                            float: left;
+                                            width: 100%;
+                                            border-bottom-style: none;
+                                        }
+                                        #my-profile .upfile input {
+                                            width: 95%;
+                                        }
+                                    }
+
+                                    .box-boa-2 th {
+                                        line-height: 32px;
+                                        height: 42px;
+                                    }
+
+                                    .button {
+                                        line-height: 32px;
+                                        height: 42px;
+                                    }
+                                </style>
+
+                                <script type="text/javascript" charset=utf-8>
+                                    function check() {
+                                        var password = document.getElementById("password").value;
+                                        var repsword = document.getElementById("repsword").value;
+
+                                        //	if (password === '') {
+                                        //        alert('密码不能为空');
+                                        //        return false;
+                                        //    }
+
+                                        if (password != repsword) {
+                                            alert("两次密码不同，请重新输入");
+                                            return false;
+                                        }
+
+                                        //    if (password.length < 6) {
+                                        //        alert('密码不能少于6位');
+                                        //        return false;
+                                        //    }
+
+                                        //    if (password.match(/\d/) && password.match(/[a-zA-Z]/)) {
+                                        //        return true;
+                                        //    } else {
+                                        //        alert("您输入的密码至少包含数字和字母！");
+                                        //        return false;
+                                        //    }
+
+                                    }
+                                </script>
+
+                                <div id="my-profile" role="main">
+                                    <form name="profile" action="" method="post" enctype="multipart/form-data" onsubmit="return check();">
+                                        {% csrf_token %}
+                                        {{ user_change_form.non_field_errors }}
+                                        <input type="hidden" id="_wpnonce" name="_wpnonce" value="2f915b302e" /><input type="hidden" name="_wp_http_referer" value="/user.html" /> <input type="hidden" name="from" value="profile" />
+                                        <input type="hidden" name="action" value="update" />
+                                        <input type="hidden" name="checkuser_id" value="478" />
+                                        <input type="hidden" name="dashboard_url" value="" />
+                                        <input type="hidden" name="user_id" id="user_id" value="" />
+                                        <table class="box-boa-1" width="100%" cellspacing="0" cellpadding="0" border="0">
+
+                                            <br />
+                                            <tr>
+                                                <td colspan="2" bgcolor="#F0F0F0">
+                                                    <h4 style="vertical-align:middle;line-height: 33px;margin: 0px;padding: 0px;">&nbsp;&nbsp;账号信息</h4>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th>登录名 (不可更改)：</th>
+                                                <td>
+                                                    {{ user_change_form.username }}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>呢称 (默认显示)：</th>
+                                                <td>
+                                                    {{ user_change_form.nickname }}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>手机：</th>
+                                                <td>
+                                                    {{ user_change_form.mobile }}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>电子邮件 (不可更改)：</th>
+                                                <td>
+                                                    {{ user_change_form.email }}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>新密码：</th>
+                                                <td>
+                                                    {{ user_change_form.password1 }}
+                                                    {{ user_change_form.password1.errors }}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>重复新密码：</th>
+                                                <td>
+                                                    {{ user_change_form.password2 }}
+                                                    {{ user_change_form.password2.errors }}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" bgcolor="#F0F0F0">
+                                                    <h4 style="vertical-align:middle;line-height: 33px;margin: 0px;padding: 0px;">&nbsp;&nbsp;其它信息</h4>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>站点：</th>
+                                                <td>
+                                                    {{ user_change_form.site }}
+                                                    {{ user_change_form.errors }}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                            <tr>
+                                                <th>QQ：</th>
+                                                <td>
+                                                    {{ user_change_form.qq }}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>微信：</th>
+                                                <td>
+                                                    {{ user_change_form.qq }}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                            <tr>
+                                                <th>公司说明：</th>
+                                                <td class="box-boa-1-1">
+                                                    {{ user_change_form.intro }}
+                                                    {{ user_change_form.errors }}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" bgcolor="#F0F0F0">
+                                                    <h4 style="vertical-align:middle;middle;line-height: 33px;margin: 0px;padding: 0px;">&nbsp;&nbsp;修改头像</h4>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th>
+                                                    <img alt='' src="{{ request.user.portrait.url }}" class='avatar avatar-80 photo wpfla ' width='80' height='80' /> 
+                                                </th>
+                                                <td class="box-boa-1-1">
+                                                    <input type="hidden" id="_simple_local_avatar_nonce" name="_simple_local_avatar_nonce" value="58d1a26567" />
+                                                    {{ user_change_form.portrait }}
+                                                    <span class="description">上传本地头像</span> </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td colspan="2" class="upfile" style="text-align: center;"><input type="submit" value="更新个人资料" id="register" /></td>
+                                            </tr>
+                                        </table>
+                                        <input type="hidden" name="action" value="update" />
+                                    </form>
+
+
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+
+
+                            <div>
+                                <h4>我的发帖<span class="m-number">（ {{ len_articles }} ）<span></h4>
+                                <p>*<span style="color: blue;">状态</span>为 <b><span style="color: #ff0000;">待审</span></b> 表示该信息处于审核中，稍后即将发布，请勿重复提交!</p>
+                                <p>
+                                    *<span style="color: blue;">状态</span>为 <b><span style="color: #ff0000;">拒绝</span></b> 表示该信息不符合要求! 
+                                        <span style="color: #ff0000;">文章被拒绝的原因如下 </span>：<span class="show-more" title="显示隐藏"><span><i class="fa fa-caret-down"></i></span>
+                                    </span>
+                                </p>
+                                <div class="section-content" style="display: block;">
+                                    <p></p>
+                                    <p>1.文章有重复,系统中存在相似度很高的文章（你的文章是原创的吗，还是直接复制的网上的，或者你曾经发布过同样的文章）。</p>
+                                    <p>2.文章质量低劣，标题和内容不符，标题和内容没有相关度，文章堆砌了不相干的关键词。</p>
+                                    <p>3.文章中货源的图片失效，图片已经无法访问。</p>
+                                    <p>4.文章中存在系统中违禁违法关键词，或者货源存在虚假侵权信息。</p>
+                                </div>
+                                <!-- <p>*<b><span style="color: blue;">投稿提示:</span></b>您是普通会员一天仅限投稿<b><span style="color: #ff0000;">1篇</span></b>货源! 升级高级（付费）会员请联系微信:515550681</p> -->
+                                <div class="my-post">
+                                    <table cellspacing="0" cellpadding="0" border="0">
+                                        <thead>
+                                            <tr>
+                                                <td width="800">标题</td>
+                                                <td width="120">日期</td>
+                                                <td class="fj" width="100">浏览</td>
+                                                <td class="fj" width="120">分类</td>
+                                                <td class="fj" width="100">评论</td>
+                                                <td class="fj" width="80">状态</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for article in particles %}
+                                            <tr>
+                                                <td><a href="{{ article.get_absolute_url }}" rel="bookmark">{{ article.title }}</a></td>
+                                                <td class="tc">{{ article.update_time }}</td>
+                                                <td class="tc fj">{{ article.views }}</td>
+                                                <td class="tc fj"><a href="{{ article.category.get_absolute_url }}" rel="tag"> {{ article.category.name }}</a></td>
+                                                <td class="tc fj">{{ article.comment_count }}</td>
+                                                <td class="tc fj"><span>{{ article.get_status_display }}</span></td>
+                                            </tr>
+                                            {% endfor %}
+
+                                        </tbody>
+                                    </table>
+
+                                    <div class="pagenav-clear">
+                                        <nav id="nav-below">
+                                             <div class="nav-next"><a href="http://www.xuefogm.com/category/uncategorized/"></a></div>
+                                             <div class="nav-previous"><a href="http://www.xuefogm.com/category/uncategorized/page/3/"></a></div>
+                                         </nav>
+
+                                         <nav class="navigation pagination" role="navigation">
+                                             <h2 class="screen-reader-text">文章导航</h2>
+                                             <div class="nav-links">
+                                                 {% if particles.has_previous %}
+                                                 <a class="prev page-numbers" href="?page={{ particles.previous_page_number }}#usertab3"><i class="be be-arrowleft"></i></a>
+                                                 {% endif %}
+                                                 {% for p in page_range %}
+                                                     {% ifequal p particles.number %}
+                                                         <span class="page-numbers current"><span class="screen-reader-text">第 </span>{{ p }}<span class="screen-reader-text"> 页</span></span>
+                                                     {% else %}
+                                                     <a class="page-numbers" href="?page={{ p }}#usertab3"><span class="screen-reader-text">第 </span>{{ p }}<span class="screen-reader-text"> 页</span></a>
+                                                     {% endifequal %}
+                                                 {% endfor %}
+                                                 {% if particles.has_next %}
+                                                 <a class="next page-numbers" href="?page={{ particles.next_page_number }}#usertab3"><i class="be be-arrowright"></i></a>
+                                                 {% endif %}
+                                             </div>
+                                         </nav>
+                                    </div>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+
+                            <div>
+                                <h4>发布信息</h4>
+                                <div class="m-tou">
+                                  <p><a href="{% url 'members:article_post' %}" target="_blank"><i class="be be-edit"></i> 点击跳转到发布信息页面</a></p>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+
+        </div><!-- .site-content -->
+        <div class="clear"></div>
+        {% load_footer %}
+        {% load_scroll %}
+    </div><!-- .site -->
+    <script type='text/javascript' src="{% static 'members/js/slides.js' %}"></script>
+    <script type='text/javascript' src="{% static 'members/js/sticky.js' %}"></script>
+    <script type='text/javascript' src="{% static 'members/js/jquery-ias.js' %}"></script>
+    <script type='text/javascript' src="{% static 'members/js/jquery.lazyload.js' %}"></script>
+    <script type='text/javascript' src="{% static 'members/js/tipso.js' %}"></script>
+    <script type='text/javascript' src="{% static 'members/js/script.js' %}"></script>
+    <script type='text/javascript' src="{% static 'members/js/flexisel.js' %}"></script>
+    <script type='text/javascript' src="{% static 'members/js/fancybox.js' %}"></script>
+    <script type='text/javascript' src="{% static 'members/js/superfish.js' %}"></script>
+    <script type='text/javascript' src="{% static 'members/js/gb2big5.js' %}"></script>
+    <script type='text/javascript' src="{% static 'members/js/carousel.min.js' %}"></script>
+    <script type='text/javascript' src="{% static 'members/js/bd-share.js' %}"></script>
+    <script type='text/javascript' src="{% static 'members/js/wpzm.js' %}"></script>
+    <script type="text/javascript">
+        var ias = $.ias({
+            container: "#main",
+            item: "article",
+            pagination: "#nav-below",
+            next: "#nav-below .nav-previous a",
+        });
+        ias.extension(new IASTriggerExtension({
+            text: '<i class="be be-circledown"></i>更多',
+            offset: 3,
+        }));
+        ias.extension(new IASSpinnerExtension());
+        ias.extension(new IASNoneLeftExtension({
+            text: '已是最后',
+        }));
+        ias.on('rendered', function(items) {
+            $("img").lazyload({
+                effect: "fadeIn",
+                failure_limit: 70
+            });
+        })
+    </script>
+</body>
+
+</html>

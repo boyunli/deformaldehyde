@@ -1,0 +1,22 @@
+{% load dashboard_extras %}
+{% load fullurl %}
+<aside id="hot_post_img-2" class="widget hot_post_img wow fadeInUp" data-wow-delay="0.3s">
+    <h3 class="widget-title"><span class="title-i"><span class="title-i-t"></span><span class="title-i-b"></span><span class="title-i-b"></span><span class="title-i-t"></span></span>热门货源</h3>
+    <div id="hot_post_widget" class="new_cat">
+        <ul>
+            {% for prod in goods %}
+            <li>
+              <span class='thumbnail'>
+                  <span class="load">
+                      <a href="{% buildfullurl prod.get_absolute_url %}"><img src="{% buildfullurl prod.image.url %}" data-original={% buildfullurl prod.image.url %} alt="{{ prod.title }}" /></a>
+                  </span>
+              </span>
+              <span class="new-title"><a href="{% buildfullurl prod.get_absolute_url %}" rel="bookmark">{{ prod.title }}</a></span>
+              <span class='date'><i class="be be-calendar2"></i> {{ prod.update_time|date:"m/j" }}</span>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="clear"></div>
+</aside>

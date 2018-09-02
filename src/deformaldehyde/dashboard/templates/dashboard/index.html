@@ -1,0 +1,262 @@
+{% load dashboard_extras %}
+{% load fullurl %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+    {% include 'dashboard/tags/head.html' %}
+
+<body class="home blog">
+    <div id="page" class="hfeed site">
+
+        {% load_banner request.user %}
+        <nav class="breadcrumb">
+            <div class="bull"><i class="be be-volumedown"></i></div>
+            <div id="scrolldiv">
+                <div class="scrolltext">
+                    <ul>
+                        {% for article in bd_articles %}
+          		          	  <li class="scrolltext-title"><a href="{% buildfullurl article.get_absolute_url %}" rel="bookmark">{{ article.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    $("#scrolldiv").textSlider({
+                        line: 1,
+                        speed: 300,
+                        timer: 6000
+                    });
+                })
+            </script>
+        </nav>
+
+        <div id="content" class="site-content">
+            <div id="primary" class="content-area">
+                <main id="main" class="site-main" role="main">
+                    <div id="slideshow" class="wow fadeInUp" data-wow-delay="0.3s">
+                        <ul class="rslides" id="slider">
+                            {% for ad in latest_ad_left_up_round %}
+	                              <li>
+                                      <a href="{% buildfullurl ad.get_absolute_url %}" rel="bookmark"><img src="{% buildfullurl ad.image.url %}" alt="{{ ad.title }}" /></a>
+                                    <p class="slider-caption">{{ ad.title }}</p>
+	                              </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    <!-- 最新文章 -->
+                    <div class="cms-news sort" name="2">
+                        <div class="line-four">
+                        {% for ad in latest_ad_left_up %}
+                        <div class="xl4 xm4">
+                            <div class="picture-h wow" data-wow-delay="0.3s">
+                                <figure class="picture-h-img">
+                                    <a class="videor" href="{% buildfullurl ad.get_absolute_url %}">
+                                        <img src="{% buildfullurl ad.image.url %}" data-original={% buildfullurl ad.image.url %} alt="{{ ad.title }}" />
+                                    </a>
+                                    <h2 class="posting-title">
+                                        <a href="{% buildfullurl ad.get_absolute_url %}" rel="bookmark">{{ ad.title }}</a>
+                                    </h2>
+                                </figure>
+                            </div>
+                        </div>
+                        {% endfor %}
+                            <div class="clear"></div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+
+                    {% for category in categorys %}
+                    <div class="line-one sort" name="6">
+
+                        <div class="cat-box wow fadeInUp" data-wow-delay="0.3s">
+                          <h3 class="cat-title"><a href="{% buildfullurl category.get_absolute_url %}"><span class="title-i"><span></span><span></span><span></span><span></span></span>{{ category.name }}<span class="more-i"><span></span><span></span><span></span></span></a></h3>
+                            <div class="clear"></div>
+                            <div class="cat-site">
+                                <div class="line-one-img one-img-5">
+                                    {% if category.get_published_articles.0 %}
+                                        <figure class="line-one-thumbnail">
+                                            <span class="load">
+                                                <a href="{% buildfullurl category.get_published_articles.0.get_absolute_url %}">
+                                                  <img src="{% buildfullurl category.get_published_articles.0.image.url %}" data-original={% buildfullurl category.get_published_articles.0.image.url %} alt="{{ category.get_published_articles.0.title }}" />
+                                                </a>
+                                            </span>
+                                        </figure>
+                                    {% else %}
+                                        <figure class="line-one-thumbnail">
+                                           <span class="load"><img src="{% fullstatic 'dashboard/picture/loading.png '%}" data-original={% fullstatic 'dashboard/picture/default.jpg' %} alt="微商代理网" /></span>
+                                        </figure>
+                                    {% endif %}
+                                    {% if category.get_published_articles.1 %}
+                                        <figure class="line-one-thumbnail">
+                                            <span class="load">
+                                                <a href="{% buildfullurl category.get_published_articles.1.get_absolute_url %}">
+                                                  <img src="{% buildfullurl category.get_published_articles.1.image.url %}" data-original={% buildfullurl category.get_published_articles.1.image.url %} alt="{{ category.get_published_articles.1.title }}" />
+                                                </a>
+                                            </span>
+                                        </figure>
+                                    {% else %}
+                                        <figure class="line-one-thumbnail">
+                                            <span class="load"><img src="{% fullstatic 'dashboard/picture/loading.png '%}" data-original={% fullstatic 'dashboard/picture/default.jpg' %} alt="微商代理网" /></span>
+                                        </figure>
+                                    {% endif %}
+                                    <div class="clear"></div>
+                                </div>
+                                <ul class="cat-one-list">
+                                    {% for article in category.get_published_articles|slice:":5" %}
+                                        <li class="list-date">{{ article.update_time|date:"m/j" }}</li>
+                                        <li class="list-cat-title"><a href="{% buildfullurl article.get_absolute_url %}" rel="bookmark">{{ article.title }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                    <div class="tab-site wow fadeInUp sort" data-wow-delay="0.3s" name="10">
+                        <div id="layout-tab" class="tab-product">
+                            <h2 class="tab-hd">
+                                <span class="tab-hd-con"><a href="{% buildfullurl news_category.get_absolute_url %}">微商资讯</a></span>
+                                <span class="tab-hd-con"><a href="{% buildfullurl academy_category.get_absolute_url %}">微商学院</a></span>
+                                <span class="tab-hd-con"><a href="{% buildfullurl chuangye_category.get_absolute_url %}">创业资讯</a></span>
+                            </h2>
+
+                            <div class="tab-bd dom-display">
+
+                                <ul class="tab-bd-con current">
+                                    {% for new in news %}
+                                    <li class="list-title"><a href="{% buildfullurl new.get_absolute_url %}" rel="bookmark"><i class="be be-arrowright"></i>{{ new.title }}</a></li>
+                                    {% endfor %}
+                                </ul>
+
+                                <ul class="tab-bd-con">
+                                    {% for new in academy %}
+                                    <li class="list-title"><a href="{% buildfullurl new.get_absolute_url %}" rel="bookmark"><i class="be be-arrowright"></i>{{ new.title }}</a></li>
+                                    {% endfor %}
+                                </ul>
+
+                                <ul class="tab-bd-con">
+                                    {% for new in chuangye %}
+                                    <li class="list-title"><a href="{% buildfullurl new.get_absolute_url %}" rel="bookmark"><i class="be be-arrowright"></i>{{ new.title }}</a></li>
+                                    {% endfor %}
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="clear"></div>
+                </main>
+            </div>
+            <div id="sidebar" class="widget-area cms-sidebar">
+                <div class="wow fadeInUp" data-wow-delay="0.5s">
+                    {% load_sidebar_flow_info %}
+                    {% load_sidebar_recomm %}
+                    {% load_sidebar_source_goods %}
+                    {% load_sidebar_tag %}
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div id="below-main">
+                <div class="wow fadeInUp sort" data-wow-delay="0.3s" name="14">
+                    <div class="clear"></div>
+                    <ul id="flexisel">
+                        {% for ad in latest_ad_left_below_round %}
+                            <li>
+                                <a href="{% buildfullurl ad.get_absolute_url %}"><img src="{% buildfullurl ad.image.url %}" alt="{{ ad.title }}" /></a>
+                                <h2 class="flexisel-h-title"><a href="{% buildfullurl ad.get_absolute_url %}" rel="bookmark">{{ ad.title }}</a></h2>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+                <div class="line-big sort" name="15">
+
+                    {% for category in latest_ad_left_below %}
+                    <div class="xl3 xm3">
+                        <div class="cat-box wow fadeInUp" data-wow-delay="0.3s">
+                            <h3 class="cat-title"><a href="{% buildfullurl category.get_absolute_url %}"><span class="title-i"><span></span><span></span><span></span><span></span></span>{{ category.name }}<span class="more-i"><span></span><span></span><span></span></span></a></h3>
+                            <div class="clear"></div>
+                            <div class="cat-site">
+                                <h2 class="entry-title"><a href="{% buildfullurl category.get_published_articles.0.get_absolute_url %}" rel="bookmark">{{ category.get_published_articles.0.title }}</a></h2>
+                                <div class="cat-img-small">
+                                    <figure class="thumbnail">
+                                        <span class="load">
+                                            <a href="{% buildfullurl category.get_published_articles.0.get_absolute_url %}"><img src="{% buildfullurl category.get_published_articles.0.image.url %}" data-original={% buildfullurl category.get_published_articles.0.image.url %} alt="{{ category.get_published_articles.0.title }}" /></a>
+                                        </span>
+                                    </figure>
+					                          <div class="cat-main"> {{ category.get_published_articles.0.content|slice:'150'|safe }} </div>
+                                </div>
+
+                                <div class="clear"></div>
+
+                                <ul class="cat-list">
+                                    {% for article in category.get_published_articles|slice:"1:6" %}
+                                        <li class="list-date">{{ article.update_time|date:"m/j" }}</li>
+                                        <li class="list-title"><a href="{% buildfullurl article.get_absolute_url %}" rel="bookmark"><i class="be be-arrowright"></i>{{ article.title }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div><!-- .site-content -->
+        <div class="clear"></div>
+
+        <div class="links-box">
+            <div id="links">
+                {% for link in links %}
+                    <ul class="lx7"><li class="link-f link-name wow fadeInUp" data-wow-delay="0.3s"><a href="{{ link.url }}">{{ link.name }}</a></li></ul>
+          	    {% endfor %}
+                <div class="clear"></div>
+            </div>
+        </div>
+        {% load_footer %}
+        {% load_login_pop %}
+        {% load_scroll %}
+    </div><!-- .site -->
+    <script type='text/javascript' src="{% fullstatic 'dashboard/js/editor.js' %}"></script>
+    <script type='text/javascript' src="{% fullstatic 'dashboard/js/slides.js' %}"></script>
+    <script type='text/javascript' src="{% fullstatic 'dashboard/js/jquery.qrcode.min.js' %}"></script>
+    <script type='text/javascript' src="{% fullstatic 'dashboard/js/sticky.js' %}"></script>
+    <script type='text/javascript' src="{% fullstatic 'dashboard/js/selectordie.js' %}"></script>
+    <script type='text/javascript' src="{% fullstatic 'dashboard/js/jquery-ias.js' %}"></script>
+    <script type='text/javascript' src="{% fullstatic 'dashboard/js/jquery.lazyload.js' %}"></script>
+    <script type='text/javascript' src="{% fullstatic 'dashboard/js/tipso.js' %}"></script>
+    <script type='text/javascript' src="{% fullstatic 'dashboard/js/script.js' %}"></script>
+    <script type='text/javascript' src="{% fullstatic 'dashboard/js/flexisel.js' %}"></script>
+    <script type='text/javascript' src="{% fullstatic 'dashboard/js/superfish.js' %}"></script>
+    <script type='text/javascript' src="{% fullstatic 'dashboard/js/gb2big5.js' %}"></script>
+    <script type='text/javascript' src="{% fullstatic 'dashboard/js/wpzm.js' %}"></script>
+    <script type='text/javascript' src="{% fullstatic 'dashboard/js/3dtag.js' %}"></script>
+    <script type="text/javascript">
+        var ias = $.ias({
+            container: "#main",
+            item: "article",
+            pagination: "#nav-below",
+            next: "#nav-below .nav-previous a",
+        });
+        ias.extension(new IASTriggerExtension({
+            text: '<i class="be be-circledown"></i>更多',
+            offset: 3,
+        }));
+        ias.extension(new IASSpinnerExtension());
+        ias.extension(new IASNoneLeftExtension({
+            text: '已是最后',
+        }));
+        ias.on('rendered', function(items) {
+            $("img").lazyload({
+                effect: "fadeIn",
+                failure_limit: 70
+            });
+        })
+    </script>
+    {% include 'dashboard/tags/baidu_statistic.html' %}
+</body>
+
+</html>
