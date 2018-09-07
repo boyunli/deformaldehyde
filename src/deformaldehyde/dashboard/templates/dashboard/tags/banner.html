@@ -84,7 +84,11 @@
                               </li>
                                 {% for category in categorys %}
                                     <li id="menu-item-{{ category.id }}" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-{{ category.id }}">
-                                        <a href="{% buildfullurl category.get_absolute_url %}">
+                                        {% if category.children.all %}
+                                            <a>
+                                        {% else %}
+                                            <a href="{% buildfullurl category.get_absolute_url %}">
+                                        {% endif %}
                                             {% if forloop.counter|divisibleby:"2" %}
                                                 <i class="fa-th-large fa"></i>
                                             {% else %}

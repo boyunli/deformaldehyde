@@ -156,10 +156,11 @@ class ArticleModelForm(forms.ModelForm):
 
     class Meta:
         model = Article
-        fields = ['title', 'wechat', 'category', 'tags','image', 'content']
+        fields = ['title', 'wechat', 'category', 'area_tags', 'tags','image', 'content']
         widgets= {
             'wechat': forms.TextInput(attrs={'placeholder' : '必填'}),
             'tags': forms.SelectMultiple(attrs={'class': 'postform'}),
+            'area_tags': forms.SelectMultiple(attrs={'class': 'postform'}),
         }
 
 

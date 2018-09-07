@@ -118,27 +118,20 @@
                     <div class="tab-site wow fadeInUp sort" data-wow-delay="0.3s" name="10">
                         <div id="layout-tab" class="tab-product">
                             <h2 class="tab-hd">
-                                <span class="tab-hd-con"><a href="{% buildfullurl news_category.get_absolute_url %}">微商资讯</a></span>
-                                <span class="tab-hd-con"><a href="{% buildfullurl academy_category.get_absolute_url %}">微商学院</a></span>
-                                <span class="tab-hd-con"><a href="{% buildfullurl chuangye_category.get_absolute_url %}">创业资讯</a></span>
+                                <span class="tab-hd-con"><a href="{% buildfullurl ep_category.get_absolute_url %}">环保知识</a></span>
+                                <span class="tab-hd-con"><a href="{% buildfullurl trade_category.get_absolute_url %}">行业资讯</a></span>
                             </h2>
 
                             <div class="tab-bd dom-display">
 
                                 <ul class="tab-bd-con current">
-                                    {% for new in news %}
+                                    {% for new in ep %}
                                     <li class="list-title"><a href="{% buildfullurl new.get_absolute_url %}" rel="bookmark"><i class="be be-arrowright"></i>{{ new.title }}</a></li>
                                     {% endfor %}
                                 </ul>
 
                                 <ul class="tab-bd-con">
-                                    {% for new in academy %}
-                                    <li class="list-title"><a href="{% buildfullurl new.get_absolute_url %}" rel="bookmark"><i class="be be-arrowright"></i>{{ new.title }}</a></li>
-                                    {% endfor %}
-                                </ul>
-
-                                <ul class="tab-bd-con">
-                                    {% for new in chuangye %}
+                                    {% for new in trade %}
                                     <li class="list-title"><a href="{% buildfullurl new.get_absolute_url %}" rel="bookmark"><i class="be be-arrowright"></i>{{ new.title }}</a></li>
                                     {% endfor %}
                                 </ul>

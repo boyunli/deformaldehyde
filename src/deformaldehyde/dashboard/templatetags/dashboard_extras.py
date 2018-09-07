@@ -45,7 +45,7 @@ def load_banner(user):
     '''
     加载页面 顶部
     '''
-    categorys = Category.objects.filter(parent=None)
+    categorys = Category.objects.filter(parent=None, is_news=0)
     # import pdb;pdb.set_trace()
     return {
         'categorys': categorys,

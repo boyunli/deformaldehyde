@@ -31,9 +31,9 @@ class ArticleAdmin(admin.ModelAdmin):
                                   'wechat', 'category', 'image',
                                   'is_broadcast',
                                   'status', 'ad_property']}),
-        ("Content", {'fields':['content', 'tags']})
+        ("Content", {'fields':['content', 'tags', 'area_tags']})
     )
-    filter_horizontal=('tags',)
+    filter_horizontal=('tags', 'area_tags')
 
     def preview(self, obj):
         return format_html('<a href="{}" target="_blank">{}</a>',

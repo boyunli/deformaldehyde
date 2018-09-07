@@ -14,7 +14,7 @@ from django.contrib.sites.models import Site
 
 from ckeditor_uploader.fields import RichTextUploadingField
 
-from dashboard.models import BaseModel, Category, Tag
+from dashboard.models import BaseModel, Category, Tag, AreaTag
 from deformaldehyde.settings import MEDIA_URL, MEDIA_ROOT
 
 
@@ -116,6 +116,7 @@ class Article(BaseModel):
                               help_text=(_('注：首页广告轮播图尺寸为:宽800*长300; 首页广告图片尺寸为：宽280*长210')),
                               upload_to=datetime.datetime.now().strftime('article/%Y/%m/%d'))
     tags = models.ManyToManyField(Tag, verbose_name='标签', blank=True)
+    area_tags = models.ManyToManyField(AreaTag, verbose_name='地域标签', blank=True)
     views = models.PositiveIntegerField(_('阅读量'), default=0)
     status = models.IntegerField(_('状态'), choices=STATUS_CHOICES, default=0)
     ad_property = models.IntegerField(_('广告属性'), choices=POSITION_CHOICES, default=POSITION0)

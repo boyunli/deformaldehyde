@@ -461,6 +461,9 @@
                             {% for tag in article.tags.all %}
                             <li><a href="{% buildfullurl tag.get_absolute_url %}" rel="tag">{{ tag.name}}</a></li>
                             {% endfor %}
+                            {% for tag in article.area_tags.all %}
+                            <li><a href="{% buildfullurl tag.get_absolute_url %}" rel="tag">{{ tag.name}}</a></li>
+                            {% endfor %}
                         </ul>
                     </div>
                     <div class="authorbio wow fadeInUp" data-wow-delay="0.3s">

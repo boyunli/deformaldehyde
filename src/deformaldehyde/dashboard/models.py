@@ -31,6 +31,10 @@ class Category(BaseModel):
     '''
     首页主要板块: 根据货源类别
     '''
+    NEWS_CHOICES = (
+        (0, '否'),
+        (1, '是'),
+    )
     CATEGORY1 = '甲醛的危害'
     CATEGORY2 = '除甲醛百科'
     CATEGORY3 = '除甲醛产品'
@@ -40,6 +44,8 @@ class Category(BaseModel):
     CATEGORY61 = '家装除甲醛'
     CATEGORY62 = '汽车除甲醛'
     CATEGORY63 = '工程除甲醛'
+    CATEGORY7 = '环保知识'
+    CATEGORY8 = '行业资讯'
 
     CATEGORY_CHOICES = (
         (CATEGORY1, CATEGORY1),
@@ -51,6 +57,8 @@ class Category(BaseModel):
         (CATEGORY61, CATEGORY61),
         (CATEGORY62, CATEGORY62),
         (CATEGORY63, CATEGORY63),
+        (CATEGORY7, CATEGORY7),
+        (CATEGORY8, CATEGORY8),
     )
     name = models.CharField(_('商品类别'), choices=CATEGORY_CHOICES, default=CATEGORY2,
                                 max_length=20, unique=True)
@@ -59,6 +67,7 @@ class Category(BaseModel):
     head_title = models.TextField(_('HeadTitle'), blank=False)
     head_desc = models.TextField(_('HeadDesc'), blank=False)
     head_keywords = models.TextField(_('HeadKeywords'), blank=False)
+    is_news = models.IntegerField(_('IsNews'), default=0, choices=NEWS_CHOICES)
 
     def __str__(self):
         return '{}'.format(self.name)
@@ -93,6 +102,32 @@ class Links(BaseModel):
         ordering = ['sequence']
         db_table = 'dashboard_links'
         verbose_name = verbose_name_plural = _('友情链接')
+
+
+class AreaTag(BaseModel):
+    '''
+    地域标签
+    '''
+    name = models.CharField('标签名', max_length=30, unique=True)
+    head_title = models.TextField(_('HeadTitle'), blank=False)
+    head_desc = models.TextField(_('HeadDesc'), blank=False)
+    head_keywords = models.TextField(_('HeadKeywords'), blank=False)
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('dashboard:area_tag', kwargs={'tag_name': self.slug})
+
+    # @cache_decorator(60 * 60 * 10)
+    # def get_article_count(self):
+    #     return Article.objects.filter(tags__name=self.name).distinct().count()
+
+    class Meta:
+        ordering = ['name']
+        db_table = 'dashboard_area_tag'
+        verbose_name = "地域标签"
+        verbose_name_plural = verbose_name
 
 
 class Tag(BaseModel):
