@@ -72,7 +72,7 @@ class Account(AbstractUser):
             self.portrait= InMemoryUploadedFile(output, 'ImageField', self.portrait.name,
                                              'image/jpeg', output.getbuffer().nbytes, None)
         if not self.nickname:
-            self.nickname = self.usernmae
+            self.nickname = self.username
         super(Account, self).save(*args, **kwargs)
 
 
