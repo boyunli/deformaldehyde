@@ -71,6 +71,8 @@ class Account(AbstractUser):
             img.save(output, format='JPEG', optimize=True, quality=70)
             self.portrait= InMemoryUploadedFile(output, 'ImageField', self.portrait.name,
                                              'image/jpeg', output.getbuffer().nbytes, None)
+        if not self.nickname:
+            self.nickname = self.usernmae
         super(Account, self).save(*args, **kwargs)
 
 
