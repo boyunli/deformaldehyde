@@ -150,7 +150,7 @@ class Tag(BaseModel):
     class Meta:
         ordering = ['name']
         db_table = 'dashboard_tag'
-        verbose_name = "标签"
+        verbose_name = "热门标签"
         verbose_name_plural = verbose_name
 
 
