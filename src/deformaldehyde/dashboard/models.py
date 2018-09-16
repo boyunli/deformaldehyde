@@ -75,7 +75,7 @@ class Category(BaseModel):
     class Meta:
         ordering = ['sequence']
         db_table = 'dashboard_category'
-        verbose_name = verbose_name_plural = _('产品类别')
+        verbose_name = verbose_name_plural = _('栏目分类')
 
     def get_published_articles(self):
         '''

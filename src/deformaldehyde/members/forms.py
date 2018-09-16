@@ -148,11 +148,11 @@ class AccountChangeForm(forms.Form):
 
 class ArticleModelForm(forms.ModelForm):
     title = forms.CharField(widget= forms.TextInput(attrs={'placeholder' : '必填'}),
-                            error_messages={'unique': '该货源标题重复，请更换标题！'})
+                            error_messages={'unique': '该信息标题重复，请更换标题！'})
     content = forms.CharField(widget=CKEditorUploadingWidget())
     category = ModelChoiceField(queryset=Category.objects.all(),
                                 widget=forms.Select(attrs={'class': 'postform'}),
-                                empty_label='{0} 请选择货源分类 {0}'.format('-'*26))
+                                empty_label='{0} 请选择信息分类 {0}'.format('-'*26))
 
     class Meta:
         model = Article

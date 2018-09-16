@@ -122,7 +122,7 @@ class ArchiveView(ArticleListView):
         category = get_object_or_404(Category, slug=slug)
         category_name = category.name
         self.name = category_name
-        article_list = Article.published.filter(category__name=category_name)
+        article_list = Article.published.filter(Q(category__name=category_name) | Q(category__parent__name=category_name))
         return article_list
 
     def get_context_data(self, **kwargs):

@@ -3,8 +3,8 @@ from django.utils.html import format_html
 
 from .models import Account, Article
 
-admin.site.site_header = '微商代理网'
-admin.site.site_title = '微商代理网'
+admin.site.site_header = '甲醛克星网'
+admin.site.site_title = '甲醛克星网'
 
 @admin.register(Account)
 class AccountAdmin(admin.ModelAdmin):

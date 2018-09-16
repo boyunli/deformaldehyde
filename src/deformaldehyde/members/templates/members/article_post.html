@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="Cache-Control" content="no-transform" />
     <meta http-equiv="Cache-Control" content="no-siteapp" />
-    <title>给我投稿 | 微商代理网</title>
+    <title>给我投稿 | 甲醛克星网</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <link rel="shortcut icon" href="{% fullstatic 'dashboard/images/favicon.jpg' %}">
@@ -286,28 +286,10 @@
                 <main id="main" class="site-main" role="main">
                     <article id="post-2448" class="post-2448 page type-page status-publish hentry qvw">
                         <header class="entry-header">
-                            <h1 class="entry-title">微商代理货源提交</h1>
+                            <h1 class="entry-title">发布信息</h1>
                         </header><!-- .entry-header -->
                         <div class="entry-content">
                             <div class="single-content">
-                                <blockquote>
-                                    <p>
-                                        <span style="color: #ff0000;">
-                                            <a title="发布货源教程" href="" target="_blank">
-                                                <strong>①货源图片不得多于3张。</strong> 
-                                            </a>
-                                        </span>
-                                        <span style="color: #FFA500"><strong>②货源内容必须包含不少于100字原创内容，否则不通过。</strong></span>
-                                        <span>
-                                            <a title="发布货源教程" href="" target="_blank">
-                                                <strong>③同一个货源标题重复提交，均不通过。</strong> 
-                                            </a>
-                                        </span>
-                                    </p>
-                                    <p>
-                                        <strong style="color: #FF6A6A;">货源发布SEO知识：尽量保持标题和文章内容的原创与不重复，能让百度更快收录你的货源信息，才会有更多客户看到你发布的货源资讯！</strong> 
-                                    </p>
-                                </blockquote>
                                 {% if request.user.is_authenticated %}
                                 <form method="post" action="" enctype="multipart/form-data">
                                   {% csrf_token %}
@@ -336,7 +318,7 @@
                                             <div class="help" style="margin:-19px 0px 0px 80px; font-size:11px; color:#FF6A6A;">按住 ”Ctrl“ 进行多选</div>
                                         </p>
                                         <p>
-                                            <label>标签：</label>
+                                            <label>热门标签：</label>
                                             {{ article_form.tags }}
                                             <div class="help" style="margin:-19px 0px 0px 80px; font-size:11px; color:#FF6A6A;">按住 ”Ctrl“ 进行多选</div>
                                         </p>
