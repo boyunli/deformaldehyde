@@ -132,7 +132,7 @@ class Article(BaseModel):
     class Meta:
         ordering = ['-update_time']
         db_table = 'members_article'
-        verbose_name = verbose_name_plural = '货源'
+        verbose_name = verbose_name_plural = '信息'
 
     def get_absolute_url(self):
         return reverse('members:article_detail', kwargs={
