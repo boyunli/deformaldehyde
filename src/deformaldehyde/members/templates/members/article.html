@@ -8,13 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="Cache-Control" content="no-transform" />
     <meta http-equiv="Cache-Control" content="no-siteapp" />
-    <title>{{ article.title }}-微商代理网</title>
+    <title>{{ article.title }}-甲醛克星网</title>
     <meta name="description" content="{{ article.first_para }}" />
     <meta name="keywords" content="{% for tag in article.tags.all %}{{ tag.name}}{% if not forloop.last %},{% endif %}{% endfor %}" />
     <meta property="og:description" content="{{ article.title }}">
     <meta property="og:type" content="acticle">
     <meta property="og:locale" content="zh-CN" />
-    <meta property="og:site_name" content="微商代理网">
+    <meta property="og:site_name" content="甲醛克星网">
     <meta property="og:title" content="{{ article.title }}">
     <meta property="og:url" content="{% buildfullurl article.get_absolute_url %}" />
     <meta property="og:image" content="{% buildfullurl article.image.url %}">
@@ -380,9 +380,9 @@
                                         <img src="{% buildfullurl article.image.url %}" alt="{{ article.title }}"> </div>
 
                                     <div class="video-inf">
-                                        <span class="category">货源分类：<a href="{% buildfullurl article.category.get_absolute_url %}" rel="tag">{{ article.category.name }}</a></span>
+                                        <span class="category">信息分类：<a href="{% buildfullurl article.category.get_absolute_url %}" rel="tag">{{ article.category.name }}</a></span>
                                         <span class="comment">联系人：{{ article.account.nickname }} </span>
-                                        <span class="category">货源微信：<a style="color: #ff0000;">{{ article.wechat }}</a></span>
+                                        <span class="category">联系方式：<a style="color: #ff0000;">{{ article.wechat }}</a></span>
                                         <span class="date">发布日期：{{ article.update_time }}</span>
                                     </div>
                                     <div class="clear"></div>
@@ -390,8 +390,6 @@
                                 <div class="single-content">
                                     {{ article.content|safe }}
                                 </div>
-                                <strong style="color: #ff0000;">注：</strong>
-								                <span style="color: #999999;"><em><span style="font-size: 10pt;">加我时注明在【微商代理网】看到的，下单有优惠哦。</span></em></span>
                             </div>
 
                             <div class="clear"></div>
@@ -473,7 +471,7 @@
                                 <li><strong>版权声明：</strong>文章源于投稿或网络，于{{ article.update_time }}，由 <b>{{ article.account.nickname }}</b> 发表，共 {{ article.content|length}} 字。</li>
                                 <li class="reprinted">
                                     <strong>转载请注明：</strong>
-                                    <a href="{% buildfullurl article.get_absolute_url %}" rel="bookmark" title="{{ article.title }}">{{ article.title }} | 微商代理网</a>
+                                    <a href="{% buildfullurl article.get_absolute_url %}" rel="bookmark" title="{{ article.title }}">{{ article.title }} | 甲醛克星网</a>
                                 </li>
                         </ul>
                         <div class="clear"></div>
@@ -498,7 +496,7 @@
                     <div id="single-widget">
                         <div class="wow fadeInUp" data-wow-delay="0.3s">
                             <aside id="like_most_img-2" class="widget like_most_img wow fadeInUp" data-wow-delay="0.3s">
-                                <h3 class="widget-title"><span class="s-icon"></span>相似货源</h3>
+                                <h3 class="widget-title"><span class="s-icon"></span>可能喜欢</h3>
                                 <div id="like" class="new_cat">
                                     <ul>
                                         {% for sim in sim_articles %}
@@ -516,7 +514,7 @@
                                 <div class="clear"></div>
                             </aside>
                             <aside id="new_cat-2" class="widget new_cat wow fadeInUp" data-wow-delay="0.3s">
-                                <h3 class="widget-title"><span class="s-icon"></span>优质货源</h3>
+                                <h3 class="widget-title"><span class="s-icon"></span>热门资讯</h3>
                                 <div class="new_cat">
                                     <ul>
                                         {% for best in best_articles %}

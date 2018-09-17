@@ -153,12 +153,13 @@ class ArticleModelForm(forms.ModelForm):
     category = ModelChoiceField(queryset=Category.objects.all(),
                                 widget=forms.Select(attrs={'class': 'postform'}),
                                 empty_label='{0} 请选择信息分类 {0}'.format('-'*26))
+    wechat = forms.CharField(widget= forms.TextInput(attrs={'placeholder' : '选填'}),
+                             required=False)
 
     class Meta:
         model = Article
         fields = ['title', 'wechat', 'category', 'area_tags', 'tags','image', 'content']
         widgets= {
-            'wechat': forms.TextInput(attrs={'placeholder' : '必填'}),
             'tags': forms.SelectMultiple(attrs={'class': 'postform'}),
             'area_tags': forms.SelectMultiple(attrs={'class': 'postform'}),
         }
