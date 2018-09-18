@@ -13,6 +13,7 @@ from django.views.decorators.debug import sensitive_post_parameters
 from django.utils.http import is_safe_url
 from django.views.generic import TemplateView
 from django.shortcuts import render
+from django.conf import settings
 
 from .models import Article
 from .forms import RegisterForm, LoginForm, ArticleModelForm, AccountChangeForm
@@ -210,7 +211,7 @@ class ArticleEditView(TemplateView):
             dict_ = {
                 'account': request.user,
                 'title': title,
-                'wechat': wechat,
+                'wechat': wechat if wechat else settings.WECHAT,
                 'category': category,
                 'content': content,
                 'image': image,
