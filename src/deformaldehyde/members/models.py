@@ -184,10 +184,10 @@ class Article(BaseModel):
             from PIL import ImageOps
             if self.ad_property == self.POSITION1:
                 img = ImageOps.fit(img, (800,300), Img.ANTIALIAS)
-            else:
+            elif self.ad_property != self.POSITION0:
                 img = ImageOps.fit(img, (280,210), Img.ANTIALIAS)
             output= BytesIO()
-            img.save(output, format='JPEG', optimize=True, quality=70)
+            img.save(output, format='JPEG')
             self.image= InMemoryUploadedFile(output, 'ImageField', image.name,
                                              'image/jpeg', output.getbuffer().nbytes, None)
 

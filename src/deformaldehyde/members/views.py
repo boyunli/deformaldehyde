@@ -175,9 +175,10 @@ class LoginView(FormView):
             return super(LoginView, self).form_valid(form)
             # return HttpResponseRedirect('/')
         else:
-            return self.render_to_response({
+            return render(self.request, self.template_name, {
                 'form': form
             })
+
 
     def get_success_url(self):
         print(self.redirect_field_name)

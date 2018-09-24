@@ -26,7 +26,7 @@
 .m-personal p {
 	position: absolute;
 	top: 10px;
-	right: 20px;
+	right: 40px;
 	color: #ddd;
 }
 
@@ -63,7 +63,7 @@
 .m-logout a {
 	position: absolute;
 	top: 130px;
-	right: 20px;
+	right: 40px;
 	color: #ddd;
 	line-height: 30px;
 	padding: 0 10px;

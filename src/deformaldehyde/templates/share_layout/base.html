@@ -1,0 +1,384 @@
+﻿{% load dashboard_extras %}
+{% load fullurl %}
+{% load cache %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    {% block header %}
+    {% endblock %}
+    <link rel="shortcut icon" href="{% fullstatic 'dashboard/images/favicon.jpg' %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% fullstatic 'dashboard/images/favicon.jpg' %}" />
+    <!--[if lt IE 9]>
+    <script src="fullstatic/js/html5_1.js"></script>
+    <script src="fullstatic/js/css3-mediaqueries_1.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript">
+        var msg = document.title;
+        msg = "…" + msg;
+        pos = 0;
+
+        function scrollMSG() {
+            document.title = msg.substring(pos, msg.length) + msg.substring(0, pos);
+            pos++;
+            if (pos > msg.length) pos = 0
+            window.setTimeout("scrollMSG()", 200);
+        }
+        scrollMSG();
+    </script>
+
+    <link rel='stylesheet' id='bbp-default-css'  href="{% fullstatic 'dashboard/css/bbpress.css' %}" type='text/css' media='screen' />
+    <link rel='stylesheet' id='font-awesome-four-css'  href="{% fullstatic 'dashboard/css/font-awesome.min.css' %}" type='text/css' media='all' />
+    <link rel='stylesheet' id='begin-style-css'  href="{% fullstatic 'dashboard/css/style.css' %}" type='text/css' media='all' />
+    <link rel='stylesheet' id='fonts-css'  href="{% fullstatic 'dashboard/css/fonts.css' %}" type='text/css' media='all' />
+    <link rel='stylesheet' id='iconfontd-css' href="{% fullstatic 'dashboard/css/font_564965_qh7d0ejbukcblnmi.css' %}" type='text/css' media='all' />
+    <link rel='stylesheet' id='bbpress-css'  href="{% fullstatic 'dashboard/css/bbp.css' %}" type='text/css' media='all' />
+    <script type='text/javascript' src="{% fullstatic 'dashboard/js/jquery.min.js' %}"></script>
+    <script type='text/javascript' src="{% fullstatic 'dashboard/js/weishangdl.js' %}"></script>
+    <style>
+        #content,
+        .header-sub,
+        .top-nav,
+        #top-menu,
+        #mobile-nav,
+        #main-search,
+        #search-main,
+        .breadcrumb,
+        .footer-widget,
+        .links-box,
+        .g-col,
+        .links-group #links,
+        .menu-img {
+            width: 1220px;
+        }
+
+        @media screen and (max-width: 1220px) {
+            #content,
+            .breadcrumb,
+            .footer-widget,
+            .links-box,
+            #top-menu,
+            .top-nav,
+            #main-search,
+            #search-main,
+            #mobile-nav,
+            .header-sub,
+            .breadcrumb,
+            .g-col,
+            .links-group #links,
+            .menu-img {
+                width: 98%;
+            }
+        }
+    </style>
+    <style>
+        .site-title a {
+            color: #dd8800;
+        }
+
+        .site-description {
+            color: #dd8500;
+        }
+
+        #site-nav .down-menu>li>a:hover,
+        #site-nav .down-menu>li.sfHover>a {
+            background: #dd8500;
+            border-bottom: 1px solid #dd8500
+        }
+
+        a:hover,
+        .single-content p a,
+        .single-content p a:visited,
+        .top-menu a:hover,
+        #site-nav .down-menu>.current-menu-item>a,
+        #user-profile a:hover,
+        .top-icon .be,
+        .entry-meta a,
+        .entry-meta-no a,
+        .filter-tag:hover {
+            color: #dd8500;
+        }
+
+        .grid-cat-title:hover .title-i span,
+        .cat-title:hover .title-i span,
+        .cat-square-title:hover .title-i span,
+        .widget-title:hover .title-i span,
+        .cat-grid-title:hover .title-i span,
+        .child-title:hover .title-i span,
+        #respond input[type='text']:focus,
+        #respond textarea:focus {
+            border: 1px solid #dd8500
+        }
+
+        .single-meta li a:hover,
+        #fontsize:hover {
+            background: #dd8500;
+            border: 1px solid #dd8500
+        }
+
+        .ball-pulse>div {
+            border: 1px solid #dd8500
+        }
+
+        .searchbar button,
+        #login input[type='submit'],
+        .log-zd,
+        .read-pl a:hover,
+        .group-phone a,
+        .deanm-main .de-button a {
+            background: #dd8500;
+        }
+
+        .cat-con-section {
+            border-bottom: 3px solid #dd8500;
+        }
+
+        .nav-search:hover:after {
+            color: #dd8500;
+        }
+
+        .down a,
+        .meta-nav:hover,
+        #gallery .callbacks_here a,
+        .link-f a:hover,
+        .ias-trigger-next a:hover,
+        .orderby li a:hover,
+        #respond #submit:hover,
+        .comment-tool a:hover,
+        .login-respond,
+        .filter-on {
+            background: #dd8500;
+            border: 1px solid #dd8500
+        }
+
+        .entry-more a {
+            background: #dd8500;
+        }
+
+        .entry-more a:hover {
+            background: #666;
+        }
+
+        @media screen and (min-width: 550px) {
+            .pagination span.current,
+            .pagination a:hover,
+            .favorite-e a:hover,
+            .gr-cat-title a,
+            .group-tab-hd .group-current {
+                background: #dd8500;
+                border: 1px solid #dd8500
+            }
+        }
+
+        @media screen and (max-width: 550px) {
+            .pagination .prev,
+            .pagination .next {
+                background: #dd8500;
+                border: 1px solid #dd8500
+            }
+        }
+
+        @media screen and (min-width: 900px) {
+            #scroll li a:hover,
+            .page-links span,
+            .page-links a:hover span {
+                background: #dd8500;
+                border: 1px solid #dd8500
+            }
+        }
+
+        .single-content .directory {
+            border-left: 5px solid #dd8500;
+        }
+
+        .entry-header h1 {
+            border-left: 5px solid #dd8500;
+            border-right: 5px solid #dd8500;
+        }
+
+        .slider-caption,
+        .header-sub h1 {
+            background: #dd8500;
+        }
+
+        .callbacks_tabs .callbacks_here a {
+            background: #dd8500;
+            border: 1px solid #dd8500
+        }
+
+        .callbacks_nav {
+            color: #dd8500;
+        }
+
+        .thumbnail .cat,
+        .format-img-cat,
+        .title-l,
+        .des-t,
+        .des-p {
+            background: #dd8500;
+        }
+    </style>
+    <style>
+        @keyframes blink {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 1;
+            }
+            50.01% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .fa-volume-up {
+            animation: blink 1s linear infinite;
+        }
+
+        .logo-site {
+            width: 220px;
+            overflow: hidden
+        }
+
+        @media screen and (max-width:480px) {
+            .logo-site {
+                width: 140px
+            }
+        }
+
+        .logo-site:before {
+            content: "";
+            position: absolute;
+            left: -665px;
+            top: -460px;
+            width: 200px;
+            height: 15px;
+            background-color: rgba(255, 255, 255, .5);
+            -webkit-transform: rotate(-45deg);
+            -moz-transform: rotate(-45deg);
+            -ms-transform: rotate(-45deg);
+            -o-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+            -webkit-animation: searchLights 1s ease-in 1s infinite;
+            -o-animation: searchLights 1s ease-in 1s infinite;
+            animation: searchLights 1s ease-in 1s infinite;
+        }
+
+        @-webkit-keyframes searchLights {
+            0% {
+                left: -100px;
+                top: 0
+            }
+
+            to {
+                left: 120px;
+                top: 100px
+            }
+        }
+
+        @-o-keyframes searchLights {
+            0% {
+                left: -100px;
+                top: 0
+            }
+
+            to {
+                left: 120px;
+                top: 100px
+            }
+        }
+
+        @-moz-keyframes searchLights {
+            0% {
+                left: -100px;
+                top: 0
+            }
+
+            to {
+                left: 120px;
+                top: 100px
+            }
+        }
+
+        @keyframes searchLights {
+            0% {
+                left: -100px;
+                top: 0
+            }
+
+            to {
+                left: 120px;
+                top: 100px
+            }
+        }
+    </style>
+</head>
+
+<body class="home blog">
+    <div id="page" class="hfeed site">
+
+        {% cache 3600 banner %}
+            {% load_banner request.user %}
+        {% endcache %}
+
+        {% block breadcrumb %}
+        {% endblock %}
+
+        <div id="content" class="site-content">
+           {% block primary %}
+           {% endblock %}
+
+              {% block sidebar %}
+              {% endblock %}
+
+           <div class="clear"></div>
+
+           {% block below-main %}
+           {% endblock %}
+        </div><!-- .site-content -->
+
+        {% block links-box %}
+        {% endblock %}
+
+        <div class="clear"></div>
+        {% cache 3600 scroll %}
+            {% load_footer %}
+            {% load_login_pop %}
+            {% load_scroll %}
+        {% endcache %}
+    </div><!-- .site -->
+    <!-- 页面上方轮播 -->
+    <script type='text/javascript' src="{% fullstatic 'dashboard/js/slides.js' %}"></script>
+    <!-- 页面侧边栏布局 -->
+    <script type='text/javascript' src="{% fullstatic 'dashboard/js/sticky.js' %}"></script>
+    <!-- 页面下方轮播 -->
+    <script type='text/javascript' src="{% fullstatic 'dashboard/js/jquery.lazyload.js' %}"></script>
+    <script type='text/javascript' src="{% fullstatic 'dashboard/js/tipso.js' %}"></script>
+    <!-- 侧边上下滑动 -->
+    <script type='text/javascript' src="{% fullstatic 'dashboard/js/script.js' %}"></script>
+    <script type='text/javascript' src="{% fullstatic 'dashboard/js/flexisel.js' %}"></script>
+    <!-- 字体 -->
+    <script type='text/javascript' src="{% fullstatic 'dashboard/js/gb2big5.js' %}"></script>
+    <!-- 标签云 -->
+    <script type='text/javascript' src="{% fullstatic 'dashboard/js/3dtag.js' %}"></script>
+    <!-- 手机端 -->
+    <script type='text/javascript' src="{% fullstatic 'dashboard/js/superfish.js' %}"></script>
+    <!-- 评论 -->
+    <script type='text/javascript' src="{% fullstatic 'members/js/comments-ajax-qt.js' %}"></script> 
+    <!-- 分享更多 -->
+    <script type='text/javascript' src="{% fullstatic 'members/js/bd-share.js' %}"></script> 
+
+    {% block js-script %}
+    {% endblock %}
+
+    {% include 'dashboard/tags/baidu_statistic.html' %}
+</body>
+
+</html>

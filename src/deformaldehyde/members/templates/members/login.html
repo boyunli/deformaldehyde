@@ -9,7 +9,9 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>微商代理网 &lsaquo; 登录</title>
+    <title>甲醛克星网 &lsaquo; 登录</title>
+    <link rel="shortcut icon" href="{% static 'dashboard/images/favicon.jpg' %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static 'dashboard/images/favicon.jpg' %}" />
     <link rel='stylesheet' id='dashicons-css' href="{% static 'members/css/dashicons.min.css' %}" type='text/css' media='all' />
     <link rel='stylesheet' id='buttons-css' href="{% static 'members/css/buttons.min.css' %}" type='text/css' media='all' />
     <link rel='stylesheet' id='forms-css' href="{% static 'members/css/forms.min.css' %}" type='text/css' media='all' />
@@ -60,7 +62,7 @@
 
 <body class="login login-action-login wp-core-ui  locale-zh-cn">
     <div id="login">
-        <h1><a href="{% url 'dashboard:index' %}" title="欢迎您光临本站！" tabindex="-1">微商代理网</a></h1>
+        <h1><a href="{% url 'dashboard:index' %}" title="欢迎您光临本站！" tabindex="-1">甲醛克星网</a></h1>
 
         <form name="loginform" id="loginform" action="{% url 'members:login' %}" method="post">
             {% csrf_token %}
@@ -88,7 +90,7 @@
             <a href="{% url 'members:register' %}">注册</a> | <a href="">忘记密码？</a>
         </p>
 
-        <p id="backtoblog"><a href="{% url 'dashboard:index' %}">&larr; Back to 微商代理网</a></p>
+        <p id="backtoblog"><a href="{% url 'dashboard:index' %}">&larr; Back to 甲醛克星网</a></p>
 
     </div>
 

@@ -1,21 +1,22 @@
+{% extends 'share_layout/base.html' %}
 {% load dashboard_extras %}
 {% load fullurl %}
-<!DOCTYPE html>
-<html lang="zh-CN">
 
-    {% include 'dashboard/tags/head.html' %}
+{% block header %}
+    <title> {{ head_title }}-甲醛克星网</title>
+    <meta name="description" content="{{ head_desc }}" />
+    <meta name="keywords" content="{{ head_keywords }}" />
+{% endblock %}
 
-<body class="archive category category-uncategorized category-1">
-    <div id="page" class="hfeed site">
-
-    {% load_banner user %}
+{% block breadcrumb %}
     <nav class="breadcrumb">
         <a class="crumbs" href="{% fullurl 'dashboard:index' %}"><i class="be be-home"></i>首页</a>
         <i class="be be-arrowright"></i><a href="{% buildfullurl article_list.0.tag.get_absolute_url %}">{{ tag_name }}</a>
 				<i class="be be-arrowright"></i>文章
-		</nav>
+	</nav>
+{% endblock %}
 
-        <div id="content" class="site-content">
+{% block primary %}
             <section id="primary" class="content-area">
                 <main id="main" class="site-main" role="main">
 
@@ -78,7 +79,9 @@
                 {% endif %}
 
             </section><!-- .content-area -->
+{% endblock %}
 
+{% block sidebar %}
             <div id="sidebar" class="widget-area all-sidebar">
 
                 {% load_sidebar_tag %}
@@ -86,51 +89,4 @@
                 {% load_sidebar_source_goods %}
 
             </div>
-
-            <div class="clear"></div>
-        </div><!-- .site-content -->
-        <div class="clear"></div>
-        {% load_footer %}
-        {% load_login_pop %}
-        {% load_scroll %}
-    </div><!-- .site -->
-    <script type='text/javascript' src="{% fullstatic 'dashboard/js/editor.js' %}"></script>
-    <script type='text/javascript' src="{% fullstatic 'dashboard/js/slides.js' %}"></script>
-    <script type='text/javascript' src="{% fullstatic 'dashboard/js/jquery.qrcode.min.js' %}"></script>
-    <script type='text/javascript' src="{% fullstatic 'dashboard/js/sticky.js' %}"></script>
-    <script type='text/javascript' src="{% fullstatic 'dashboard/js/selectordie.js' %}"></script>
-    <script type='text/javascript' src="{% fullstatic 'dashboard/js/jquery-ias.js' %}"></script>
-    <script type='text/javascript' src="{% fullstatic 'dashboard/js/jquery.lazyload.js' %}"></script>
-    <script type='text/javascript' src="{% fullstatic 'dashboard/js/tipso.js' %}"></script>
-    <script type='text/javascript' src="{% fullstatic 'dashboard/js/script.js' %}"></script>
-    <script type='text/javascript' src="{% fullstatic 'dashboard/js/flexisel.js' %}"></script>
-    <script type='text/javascript' src="{% fullstatic 'dashboard/js/superfish.js' %}"></script>
-    <script type='text/javascript' src="{% fullstatic 'dashboard/js/gb2big5.js' %}"></script>
-    <script type='text/javascript' src="{% fullstatic 'dashboard/js/wpzm.js' %}"></script>
-    <script type='text/javascript' src="{% fullstatic 'dashboard/js/3dtag.js' %}"></script>
-    <script type="text/javascript">
-        var ias = $.ias({
-            container: "#main",
-            item: "article",
-            pagination: "#nav-below",
-            next: "#nav-below .nav-previous a",
-        });
-        ias.extension(new IASTriggerExtension({
-            text: '<i class="be be-circledown"></i>更多',
-            offset: 3,
-        }));
-        ias.extension(new IASSpinnerExtension());
-        ias.extension(new IASNoneLeftExtension({
-            text: '已是最后',
-        }));
-        ias.on('rendered', function(items) {
-            $("img").lazyload({
-                effect: "fadeIn",
-                failure_limit: 70
-            });
-        })
-    </script>
-    {% include 'dashboard/tags/baidu_statistic.html' %}
-</body>
-
-</html>
+{% endblock %}
