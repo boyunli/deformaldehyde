@@ -35,7 +35,7 @@
                         <ul class="resp-tabs-list hor_1">
                             <li><i class="be be-businesscard"></i>我的信息</li>
                             <li><i class="be be-personoutline"></i>修改资料</li>
-                            <li><i class="be be-file"></i>我的货源</li>
+                            <li><i class="be be-file"></i>我的文章</li>
                             <li><a href="{% url 'members:article_post' %}"><i class="be be-edit"></i>发布信息</a></li>
                         </ul>
 
@@ -328,10 +328,10 @@
                                     <p></p>
                                     <p>1.文章有重复,系统中存在相似度很高的文章（你的文章是原创的吗，还是直接复制的网上的，或者你曾经发布过同样的文章）。</p>
                                     <p>2.文章质量低劣，标题和内容不符，标题和内容没有相关度，文章堆砌了不相干的关键词。</p>
-                                    <p>3.文章中货源的图片失效，图片已经无法访问。</p>
-                                    <p>4.文章中存在系统中违禁违法关键词，或者货源存在虚假侵权信息。</p>
+                                    <p>3.文章中的图片失效，图片已经无法访问。</p>
+                                    <p>4.文章中存在系统中违禁违法关键词，或者文章存在虚假侵权信息。</p>
                                 </div>
-                                <!-- <p>*<b><span style="color: blue;">投稿提示:</span></b>您是普通会员一天仅限投稿<b><span style="color: #ff0000;">1篇</span></b>货源! 升级高级（付费）会员请联系微信:515550681</p> -->
+                                <!-- <p>*<b><span style="color: blue;">投稿提示:</span></b>您是普通会员一天仅限投稿<b><span style="color: #ff0000;">1篇</span></b>文章! 升级高级（付费）会员请联系微信:515550681</p> -->
                                 <div class="my-post">
                                     <table cellspacing="0" cellpadding="0" border="0">
                                         <thead>
@@ -347,7 +347,11 @@
                                         <tbody>
                                             {% for article in particles %}
                                             <tr>
-                                                <td><a href="{{ article.get_absolute_url }}" rel="bookmark">{{ article.title }}</a></td>
+                                                {% if article.status == 2 %}
+                                                    <td><a href="{{ article.get_absolute_url }}" rel="bookmark">{{ article.title }}</a></td>
+                                                {% else %}
+                                                    <td><a rel="bookmark">{{ article.title }}</a></td>
+                                                {% endif %}
                                                 <td class="tc">{{ article.update_time }}</td>
                                                 <td class="tc fj">{{ article.views }}</td>
                                                 <td class="tc fj"><a href="{{ article.category.get_absolute_url }}" rel="tag"> {{ article.category.name }}</a></td>
