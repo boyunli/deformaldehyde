@@ -180,12 +180,13 @@ class Article(BaseModel):
             img.save(image_path, format='JPEG')
             pass
         else:
-            # 除了大的轮播广告图片为800*300， 其他分类展示图片大小为 宽/长 = 280/210
-            from PIL import ImageOps
-            if self.ad_property == self.POSITION1:
-                img = ImageOps.fit(img, (800,300), Img.ANTIALIAS)
-            elif self.ad_property != self.POSITION0:
-                img = ImageOps.fit(img, (280,210), Img.ANTIALIAS)
+            if self.status == 2:
+                # 除了大的轮播广告图片为800*300， 其他分类展示图片大小为 宽/长 = 280/210
+                from PIL import ImageOps
+                if self.ad_property == self.POSITION1:
+                    img = ImageOps.fit(img, (800,300), Img.ANTIALIAS)
+                else:
+                    img = ImageOps.fit(img, (280,210), Img.ANTIALIAS)
             output= BytesIO()
             img.save(output, format='JPEG')
             self.image= InMemoryUploadedFile(output, 'ImageField', image.name,
