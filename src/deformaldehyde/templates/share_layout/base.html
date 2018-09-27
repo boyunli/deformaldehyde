@@ -324,9 +324,7 @@
 <body class="home blog">
     <div id="page" class="hfeed site">
 
-        {% cache 3600 banner %}
-            {% load_banner request.user %}
-        {% endcache %}
+        {% load_banner request.user %}
 
         {% block breadcrumb %}
         {% endblock %}
