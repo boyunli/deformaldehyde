@@ -17,20 +17,6 @@
     <script src="fullstatic/js/css3-mediaqueries_1.js"></script>
     <![endif]-->
 
-    <script type="text/javascript">
-        var msg = document.title;
-        msg = "…" + msg;
-        pos = 0;
-
-        function scrollMSG() {
-            document.title = msg.substring(pos, msg.length) + msg.substring(0, pos);
-            pos++;
-            if (pos > msg.length) pos = 0
-            window.setTimeout("scrollMSG()", 200);
-        }
-        scrollMSG();
-    </script>
-
     <link rel='stylesheet' id='bbp-default-css'  href="{% fullstatic 'dashboard/css/bbpress.css' %}" type='text/css' media='screen' />
     <link rel='stylesheet' id='font-awesome-four-css'  href="{% fullstatic 'dashboard/css/font-awesome.min.css' %}" type='text/css' media='all' />
     <link rel='stylesheet' id='begin-style-css'  href="{% fullstatic 'dashboard/css/style.css' %}" type='text/css' media='all' />
