@@ -157,7 +157,7 @@ CKEDITOR_RESTRICT_BY_USER = True
 CKEDITOR_ALLOW_NONIMAGE_FILES = False
 CKEDITOR_CONFIGS = {
     'default': {
-        'skin': 'moono',
+        # 'skin': 'moono',
         # 'toolbar_YourCustomToolbarConfig': [
         #     {'name': 'basicstyles',
         #      'items': ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript']},

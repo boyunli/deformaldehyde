@@ -186,7 +186,7 @@
                                             <a href="{% buildfullurl category.get_published_articles.0.get_absolute_url %}"><img src="{% buildfullurl category.get_published_articles.0.image.url %}" data-original={% buildfullurl category.get_published_articles.0.image.url %} alt="{{ category.get_published_articles.0.title }}" /></a>
                                         </span>
                                     </figure>
-					                          <div class="cat-main"> {{ category.get_published_articles.0.content|slice:'150'|safe }} </div>
+                                              <div class="cat-main"> {{ category.get_published_articles.0.content|striptags|slice:'150'|safe }} </div>
                                 </div>
 
                                 <div class="clear"></div>
