@@ -106,7 +106,10 @@
 
                                 <ul id="fontsize">A+</ul>
                                 <div class="single-cat-tag">
-                                    <div class="single-cat">分类：<a href="{% buildfullurl article.category.get_absolute_url %}" rel="tag">{{ article.category.name }}</a></div>
+                                    <div class="single-cat">
+                                        分类：
+                                            <a href="{% buildfullurl article.category.get_absolute_url %}" rel="tag">{{ article.category.name }}</a>
+                                    </div>
                                 </div>
                             </footer><!-- .entry-footer -->
 
@@ -118,7 +121,10 @@
                     <div class="single-tag">
                         <ul class="wow fadeInUp" data-wow-delay="0.3s">
                             {% for tag in article.tags.all %}
-                            <li><a href="{% buildfullurl tag.get_absolute_url %}" rel="tag">{{ tag.name}}</a></li>
+                                <li><a href="{% buildfullurl tag.get_absolute_url %}" rel="tag">{{ tag.name}}</a></li>
+                            {% endfor %}
+                            {% for tag in article.area_tags.all %}
+                                <li><a href="{% buildfullurl tag.get_absolute_url %}" rel="tag">{{ tag.name}}</a></li>
                             {% endfor %}
                         </ul>
                     </div>
