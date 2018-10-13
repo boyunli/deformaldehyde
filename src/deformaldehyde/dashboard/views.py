@@ -74,7 +74,7 @@ class AreaTagView(ArticleListView):
         tag = get_object_or_404(AreaTag, slug=slug)
         tag_name = tag.name
         self.name = tag_name
-        article_list = Article.published.filter(area_tags__name=tag_name, ad_property=0)
+        article_list = Article.published.filter(area_tags__name=tag_name)
         return article_list
 
     def get_context_data(self, **kwargs):
@@ -98,7 +98,7 @@ class TagDetailView(ArticleListView):
         tag = get_object_or_404(Tag, slug=slug)
         tag_name = tag.name
         self.name = tag_name
-        article_list = Article.published.filter(tags__name=tag_name, ad_property=0)
+        article_list = Article.published.filter(tags__name=tag_name)
         return article_list
 
     def get_context_data(self, **kwargs):
