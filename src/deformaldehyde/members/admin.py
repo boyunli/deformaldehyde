@@ -28,7 +28,8 @@ class ArticleAdmin(admin.ModelAdmin):
     exclude = ('slug', 'create_time', 'update_time', 'views')
     fieldsets = (
         ('base info', {'fields': ['account', 'title',
-                                  'wechat', 'category', 'image',
+                                  'wechat', 'category',
+                                  'ad_image', 'image',
                                   'is_broadcast',
                                   'status', 'ad_property']}),
         ("Content", {'fields':['content', 'tags', 'area_tags']})

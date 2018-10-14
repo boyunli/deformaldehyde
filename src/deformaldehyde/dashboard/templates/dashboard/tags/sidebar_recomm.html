@@ -6,7 +6,7 @@
             {% for recomm in recomms %}
             <li>
                 <span class="thumbnail">
-                    <span class="load"><a href="{% buildfullurl recomm.get_absolute_url %}"><img src="{% buildfullurl recomm.image.url %}" data-original="{% buildfullurl recomm.image.url %}" alt="{{ recomm.title }}" /></a></span> 
+                    <span class="load"><a href="{% buildfullurl recomm.get_absolute_url %}"><img src="{% buildfullurl recomm.image_url %}" data-original="{% buildfullurl recomm.image.url %}" alt="{{ recomm.title }}" /></a></span> 
                 </span>
                 <span class="hot-title"><a href="{% buildfullurl recomm.get_absolute_url %}" rel="bookmark">{{ recomm.title }}</a></span>
                 <span class="views"><i class="be be-calendar2"></i> {{ recomm.update_time|date:"m/j"}}</span> 

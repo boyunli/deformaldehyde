@@ -39,7 +39,7 @@
                         <ul class="rslides" id="slider">
                             {% for ad in latest_ad_left_up_round %}
 	                              <li>
-                                      <a href="{% buildfullurl ad.get_absolute_url %}" rel="bookmark"><img src="{% buildfullurl ad.image.url %}" alt="{{ ad.title }}" /></a>
+                                      <a href="{% buildfullurl ad.get_absolute_url %}" rel="bookmark"><img src="{% buildfullurl ad.image_url %}" alt="{{ ad.title }}" /></a>
                                     <p class="slider-caption">{{ ad.title }}</p>
 	                              </li>
                             {% endfor %}
@@ -54,7 +54,7 @@
                             <div class="picture-h wow" data-wow-delay="0.3s">
                                 <figure class="picture-h-img">
                                     <a class="videor" href="{% buildfullurl ad.get_absolute_url %}">
-                                        <img src="{% buildfullurl ad.image.url %}" data-original={% buildfullurl ad.image.url %} alt="{{ ad.title }}" />
+                                        <img src="{% buildfullurl ad.image_url %}" data-original={% buildfullurl ad.image.url %} alt="{{ ad.title }}" />
                                     </a>
                                     <h2 class="posting-title">
                                         <a href="{% buildfullurl ad.get_absolute_url %}" rel="bookmark">{{ ad.title }}</a>
@@ -164,7 +164,7 @@
                     <ul id="flexisel">
                         {% for ad in latest_ad_left_below_round %}
                             <li>
-                                <a href="{% buildfullurl ad.get_absolute_url %}"><img src="{% buildfullurl ad.image.url %}" alt="{{ ad.title }}" /></a>
+                                <a href="{% buildfullurl ad.get_absolute_url %}"><img src="{% buildfullurl ad.image_url %}" alt="{{ ad.title }}" /></a>
                                 <h2 class="flexisel-h-title"><a href="{% buildfullurl ad.get_absolute_url %}" rel="bookmark">{{ ad.title }}</a></h2>
                             </li>
                         {% endfor %}

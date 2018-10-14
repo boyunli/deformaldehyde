@@ -1,6 +1,6 @@
 from django import template
 
-from dashboard.models import Tag, Category, SiteSettings
+from dashboard.models import Tag, Category, SiteSettings, AreaTag
 from members.models import Article
 from members.forms import LoginForm
 
@@ -53,6 +53,18 @@ def load_banner(user):
     }
 
 @register.inclusion_tag('dashboard/tags/sidebar_tag.html')
+def load_sidebar_area_tag():
+    '''
+    加载侧边栏 标签
+    '''
+    tags = AreaTag.objects.all()
+    return {
+        'sidebar_tags': tags,
+        'name': '地域'
+    }
+
+
+@register.inclusion_tag('dashboard/tags/sidebar_tag.html')
 def load_sidebar_tag():
     '''
     加载侧边栏 标签
@@ -60,6 +72,7 @@ def load_sidebar_tag():
     tags = Tag.objects.all()
     return {
         'sidebar_tags': tags,
+        'name': '热门'
     }
 
 @register.inclusion_tag('dashboard/tags/sidebar_new_goods.html')
