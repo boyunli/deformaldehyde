@@ -111,7 +111,7 @@ class Article(BaseModel):
     )
     account = models.ForeignKey(Account, verbose_name='账号', on_delete=models.CASCADE)
     title = models.CharField(max_length=150, verbose_name='标题', unique=True)
-    wechat = models.CharField(_('微信'), max_length=20, null=True)
+    wechat = models.CharField(_('联系方式'), max_length=20, default='190265939【QQ】', blank=True)
     category = models.ForeignKey(Category, verbose_name='类别', on_delete=models.CASCADE)
     content = RichTextUploadingField(_('内容'), config_name='default')
     image = models.ImageField(_('首图'),

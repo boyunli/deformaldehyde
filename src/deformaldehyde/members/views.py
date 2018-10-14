@@ -13,7 +13,6 @@ from django.views.decorators.debug import sensitive_post_parameters
 from django.utils.http import is_safe_url
 from django.views.generic import TemplateView
 from django.shortcuts import render
-from django.conf import settings
 
 from .models import Article
 from .forms import RegisterForm, LoginForm, ArticleModelForm, AccountChangeForm
@@ -206,20 +205,24 @@ class ArticleEditView(TemplateView):
             title = form_cleaned_data.get('title')
             wechat = form_cleaned_data.get('wechat')
             category = form_cleaned_data.get('category')
+            area_tags = form_cleaned_data.get('area_tags')
             tags = form_cleaned_data.get('tags')
             content = form_cleaned_data.get('content')
             image = form_cleaned_data.get('image')
             dict_ = {
                 'account': request.user,
                 'title': title,
-                'wechat': wechat if wechat else settings.WECHAT,
                 'category': category,
                 'content': content,
                 'image': image,
             }
+            if wechat:
+                dict_['wechat'] = wechat
             article = Article.objects.create(**dict_)
             for tag in tags:
                 article.tags.add(tag)
+            for tag in area_tags:
+                article.area_tags.add(tag)
             article.save(is_compress=True)
 
             return HttpResponseRedirect(reverse('members:submitted'))
