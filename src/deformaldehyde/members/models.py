@@ -93,11 +93,16 @@ class Article(BaseModel):
         (0, '否'),
         (1, '是'),
     )
+
+    PRE_STATUS = 0
+    PUBLISHED_STATUS = 2
+    REFUSED_STATUS = 3
     STATUS_CHOICES = (
-        (0, '待审'),
-        (2, '发布'),
-        (3, '拒绝'),
+        (PRE_STATUS, '待审'),
+        (PUBLISHED_STATUS, '发布'),
+        (REFUSED_STATUS, '拒绝'),
     )
+
     POSITION0 = 0
     POSITION1 = 1
     POSITION2 = 2
