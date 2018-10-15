@@ -227,8 +227,10 @@ class Article(BaseModel):
             img.save(output, format='JPEG', optimize=True, quality=70)
             self.image= InMemoryUploadedFile(output, 'ImageField', image.name,
                                              'image/jpeg', output.getbuffer().nbytes, None)
-            # import pdb;pdb.set_trace()
-            os.remove(os.path.join(MEDIA_ROOT, image.name))
+            # 因为重写图片时会重新生成一张图片，所以删除原图以节约磁盘
+            image_path = os.path.join(MEDIA_ROOT, image.name)
+            if os.path.exists(image_path):
+                os.remove(image_path)
 
     def save(self, is_compress=False, is_update_views=False, *args,  **kwargs):
         if not is_update_views and self.status != self.REFUSED_STATUS:
