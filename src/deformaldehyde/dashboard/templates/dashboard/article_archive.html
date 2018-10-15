@@ -61,7 +61,7 @@
                         <h2 class="screen-reader-text">文章导航</h2>
                         <div class="nav-links">
                             {% if page_obj.has_previous %}
-                            <a class="prev page-numbers" href="?page={{ page_obj.previous_page_number }}"><i class="be be-arrowleft"></i></a>
+                                <a class="prev page-numbers" href="?page={{ page_obj.previous_page_number }}"><i class="be be-arrowleft"></i></a>
                             {% endif %}
                             {% for p in page_obj.paginator.page_range %}
                                 {% ifequal p page_obj.number %}
