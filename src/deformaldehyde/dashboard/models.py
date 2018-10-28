@@ -35,6 +35,10 @@ class Category(BaseModel):
         (0, '否'),
         (1, '是'),
     )
+    DISPLAY_CHOICES = (
+        (False, '否'),
+        (True, '是'),
+    )
     CATEGORY1 = '甲醛的危害'
     CATEGORY2 = '除甲醛百科'
     CATEGORY3 = '除甲醛产品'
@@ -68,6 +72,7 @@ class Category(BaseModel):
     head_desc = models.TextField(_('HeadDesc'), blank=False)
     head_keywords = models.TextField(_('HeadKeywords'), blank=False)
     is_news = models.IntegerField(_('IsNews'), default=0, choices=NEWS_CHOICES)
+    is_display = models.BooleanField(_('是否展示'), default=True, choices=DISPLAY_CHOICES)
 
     def __str__(self):
         return '{}'.format(self.name)

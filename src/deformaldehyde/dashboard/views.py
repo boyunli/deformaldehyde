@@ -14,7 +14,7 @@ class IndexView(TemplateView):
     def get(self, request):
         site_settings = SiteSettings.objects.get()
         ads = Article.published.filter(~Q(ad_property=0))
-        categorys = Category.objects.filter(~Q(name=Category.CATEGORY6), parent__exact=None, is_news=0)
+        categorys = Category.objects.filter(~Q(name=Category.CATEGORY6), parent__exact=None, is_display=True, is_news=0)
         news = Category.objects.all()
 
         latest_ad_left_up_round = ads.filter(ad_property=1)[:6]
@@ -24,7 +24,7 @@ class IndexView(TemplateView):
         below_module = categorys[4:]
 
         latest_ad_left_below_round = ads.filter(ad_property=4)[:5]
-        below_module = list(chain(below_module, Category.objects.filter(~Q(parent__exact=None), is_news=0)))
+        below_module = list(chain(below_module, Category.objects.filter(~Q(parent__exact=None), is_display=True, is_news=0)))
 
         ep_category = news.get(name='环保知识')
         trade_category = news.get(name='行业资讯')

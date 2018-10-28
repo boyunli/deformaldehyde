@@ -147,7 +147,6 @@ class Article(BaseModel):
         db_table = 'members_article'
         verbose_name = verbose_name_plural = '信息'
 
-
     def __init__(self, *args, **kwargs):
         super(Article, self).__init__(*args, **kwargs)
         self.__original_image = self.image
@@ -158,7 +157,6 @@ class Article(BaseModel):
             return self.ad_image.url
         else:
             return self.image.url
-
 
     def get_absolute_url(self):
         return reverse('members:article_detail', kwargs={

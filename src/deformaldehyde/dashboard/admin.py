@@ -6,8 +6,8 @@ from .models import Category, Links, AreaTag, Tag, SiteSettings
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     exclude = ('create_time', 'update_time')
-    list_display = ('id', 'name', 'sequence', 'slug')
-    list_editable = ['sequence']
+    list_display = ('id', 'name', 'sequence', 'is_display', 'slug')
+    list_editable = ['sequence', 'is_display']
 
 
 @admin.register(Links)
